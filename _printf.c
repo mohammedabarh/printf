@@ -19,20 +19,20 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 'c':
-					len = print_char(str);
+					len += print_char(str);
 					break;
 				case 's':
 					s = va_arg(str, char*);
-					len = print_str(s);
+					len += print_str(s);
 					break;
 				case '%':
-					len = print_37();
+					len += print_37();
 					break;
 				case 'd':
-					len = print_int(str);
+					len += print_int(str);
 					break;
 				case 'i':
-					len = print_int(str);
+					len += print_int(str);
 					break;
 				default:
 					i++;
