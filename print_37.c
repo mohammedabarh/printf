@@ -5,8 +5,8 @@
  */
 int print_37(void)
 {
-	char print_37 = '%';
+	char symbol = '%';
 
-	_putchar(print_37);
+	_putchar(symbol);
 	return (1);
 }
