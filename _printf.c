@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	char *s;
 
 	va_start(str, format);
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 					len += print_int(str);
 					break;
 				default:
+					_putchar(format[i]);
 					i++;
 					continue;
 			}
