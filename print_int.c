@@ -39,10 +39,10 @@ char *int_to_str(int a, char *s)
  */
 int print_int(va_list val)
 {
-	char  i = va_arg(val, int), len = 0;
+	int  i = va_arg(val, int), len = 0;
 	char *num, *n;
 
-	num = malloc(i);
+	num = malloc(sizeof(i));
 	n = int_to_str(i, num);
 	len = print_str(n);
 	free(n);
