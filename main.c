@@ -30,5 +30,14 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    _printf("Large number:[%d]\n", 123456789);
+    printf("Large number:[%d]\n", 123456789);
+    _printf("Zero:[%d]\n", 0);
+    printf("Zero:[%d]\n", 0);
+    _printf("Special characters:[%s]\n", "Line1\nLine2\tTabbed");
+    printf("Special characters:[%s]\n", "Line1\nLine2\tTabbed");
+    _printf("NULL string:[%s]\n", NULL);
+    printf("NULL string:[%s]\n", NULL);
+
     return (0);
 }
