@@ -18,8 +18,10 @@ int main(void)
     len2 = printf("Let's try to printf a simple sentence.\n");
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
+    len = _printf("Negative:[%d]\n", -762534123456789);
+    len2 = printf("Negative:[%d]\n", -762534123456789);
+    _printf("Negative count:[%d]\n", len);
+    printf("Negative count:[%d]\n", len2);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     _printf("String:[%s]\n", "I am a string !");
@@ -36,8 +38,10 @@ int main(void)
     printf("Zero:[%d]\n", 0);
     _printf("Special characters:[%s]\n", "Line1\nLine2\tTabbed");
     printf("Special characters:[%s]\n", "Line1\nLine2\tTabbed");
-    _printf("NULL string:[%s]\n", NULL);
-    printf("NULL string:[%s]\n", NULL);
+    len = _printf("NULL string:[%s]\n", NULL);
+    len2 = printf("NULL string:[%s]\n", NULL);
+    _printf("NULL:[%d]\n", len);
+    printf("NULL:[%d]\n", len2);
 
     return (0);
 }
