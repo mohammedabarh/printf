@@ -1,17 +1,25 @@
 #include "main.h"
 
 /**
- * _strlen - Finds the length of a string.
- * @s: The string.
+ * print_s - Prints a string.
+ * @s: the string
  *
  * Return: The length of the string.
  */
-int _strlen(char *s)
+int print_str(char *s)
 {
-	int c = 0;
+	int i, len = 0;
 
-	while (s[c] != '\0')
-		c++;
-
-	return (c);
+	if (s == NULL)
+	{
+		s = "(null)";
+		len = _strlen(s);
+		for (i = 0; i < len; i++)
+			_putchar(s[i]);
+		return (len);
+	}
+	len = _strlen(s);
+	for (i = 0; i < len; i++)
+		_putchar(s[i]);
+	return (len);
 }
