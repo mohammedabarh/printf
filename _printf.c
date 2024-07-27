@@ -1,47 +1,49 @@
-
+#include <stdarg.h>
 #include "main.h"
 /**
- * _printf - is a function that selects the correct function to print.
- * @format: identifier to look for.
- * Return: the length of the string.
+ * _printf - print output according to format
+ * @format: function argument(output and/or format specifiers)
+ * Return: number of printed characters
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
-	convert p[] = {
-		{"%s", print_s}, {"%c", print_c},
-		{"%%", print_37},
-		{"%i", print_i}, {"%d", print_d}, {"%r", print_revs},
-		{"%R", print_rot13}, {"%b", print_bin},
-		{"%u", print_unsigned},
-		{"%o", print_oct}, {"%x", print_hex}, {"%X", print_HEX},
-		{"%S", print_exc_string}, {"%p", print_pointer}
-	};
+	va_list str;
+	int i = 0, len;
+	char *s;
 
-	va_list args;
-	int i = 0, j, length = 0;
-
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-
-Here:
+	va_start(str, format);
 	while (format[i] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+		if (format[i] == '%')
 		{
-			if (p[j].ph[0] == format[i] && p[j].ph[1] == format[i + 1])
+			switch (format[i + 1])
 			{
-				length += p[j].function(args);
-				i = i + 2;
-				goto Here;
+				case 'c':
+					len = print_char(str);
+					break;
+				case 's':
+					s = va_arg(str, char*);
+					len = print_str(s);
+					break;
+				case '%':
+					len = print_37();
+					break;
+				case 'd':
+					len = print_int(str);
+					break;
+				case 'i':
+					len = print_int(str);
+					break;
+				default:
+					i++;
+					continue;
 			}
-			j--;
+			i += 2;
+			continue;
 		}
 		_putchar(format[i]);
-		length++;
 		i++;
 	}
-	va_end(args);
-	return (length);
+	va_end(str);
+	return (len);
 }
