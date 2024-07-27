@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list str;
-	int i = 0, len;
+	int i = 0, len = 0;
 	char *s;
 
 	va_start(str, format);
@@ -42,6 +42,7 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		_putchar(format[i]);
+		len++;
 		i++;
 	}
 	va_end(str);
