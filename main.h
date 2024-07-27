@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-// Function declarations
+/*Function declarations*/
 int print_37(void);
 int _strlen(char *s);
 int print_str(char *s);
