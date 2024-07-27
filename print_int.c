@@ -1,8 +1,9 @@
 #include <stdlib.h>
 #include "main.h"
-/*
+/**
  * int_to_str - change an  integer number into a string
  * @a: the integer
+ * @s: string to hold the integer
  * Return: character numbers
  */
 char *int_to_str(int a, char *s)
