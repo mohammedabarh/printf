@@ -22,9 +22,9 @@ char *int_to_str(int a, char *s)
 	} while (a > 0);
 	if (negative)
 		s[i++] = '-';
+	s[i] = '\0';
 	s_len = _strlen(s);
-	s[s_len] = '\0';
-	for (i = 0, j = s_len - 1; i < s_len; i++, j--)
+	for (i = 0, j = s_len - 1; i < j; i++, j--)
 	{
 		temp = s[i];
 		s[i] = s[j];
