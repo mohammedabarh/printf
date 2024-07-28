@@ -59,17 +59,20 @@ int _printf(const char *format, ...)
 				}
 				else
 					len += result;
-				i++;
+				i += 2;
 			}
 			else
+			{
+				va_end(str);
 				return (-1);
+			}
 		}
 		else
 		{
 			_putchar(format[i]);
 			len++;
+			i++;
 		}
-		i++;
 	}
 	va_end(str);
 	return (len);
