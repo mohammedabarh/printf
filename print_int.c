@@ -11,6 +11,8 @@ char *int_to_str(int a, char *s)
 {
 	int i = 0, j, s_len, negative = 0, temp;
 
+	if (a == INT_MIN)
+		return ("-2147483648");
 	if (a < 0)
 	{
 		negative = 1;
@@ -43,7 +45,7 @@ int print_int(va_list val)
 	int  i = va_arg(val, int), len = 0;
 	char *num, *n;
 
-	num = malloc(INT_MAX);
+	num = malloc(12);
 	if (num == NULL)
 	{
 		free(num);
