@@ -11,7 +11,7 @@ int print_str(char *s)
 	int i, len = 0;
 
 	if (s == NULL)
-		return (0);
+		return (print_err());
 	len = _strlen(s);
 	for (i = 0; i < len; i++)
 		_putchar(s[i]);

@@ -5,9 +5,13 @@
  */
 int print_err(void)
 {
-	char *s = "(null)", i, len;
+	char *s = "(null)";
+	int i, len = 0;
 
 	for (i = 0; i < _strlen(s); i++)
+	{
+		_putchar(s[i]);
 		len++;
+	}
 	return (len);
 }
