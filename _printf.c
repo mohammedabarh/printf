@@ -41,9 +41,9 @@ int _printf(const char *format, ...)
 	va_list str;
 	int i = 0, j, len = 0, result = 0;
 
-	if (!format || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
 	va_start(str, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
