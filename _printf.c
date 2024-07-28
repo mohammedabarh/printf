@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 	va_list str;
 	int i = 0, len = 0, result = 0;
 
-	if (!format)
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(str, format);
 	while (format[i] != '\0')
