@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 /**
  * int_to_str - change an  integer number into a string
@@ -10,6 +11,8 @@ char *int_to_str(int a, char *s)
 {
 	int i = 0, j, s_len, negative = 0, temp;
 
+	if (a == INT_MIN)
+		return ("-2147483648");
 	if (a < 0)
 	{
 		negative = 1;
@@ -23,7 +26,7 @@ char *int_to_str(int a, char *s)
 	if (negative)
 		s[i++] = '-';
 	s[i] = '\0';
-	s_len = _strlen(s);
+	s_len = i;
 	for (i = 0, j = s_len - 1; i < j; i++, j--)
 	{
 		temp = s[i];
@@ -42,11 +45,14 @@ int print_int(va_list val)
 	int  i = va_arg(val, int), len = 0;
 	char *num, *n;
 
-	num = malloc(sizeof(i));
+	num = malloc(12);
 	if (num == NULL)
+	{
+		free(num);
 		return (-1);
+	}
 	n = int_to_str(i, num);
 	len = print_str(n);
-	free(n);
+	free(num);
 	return (len);
 }
