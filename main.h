@@ -13,7 +13,7 @@ int _strlen(char *s);
 int print_str(char *s);
 int print_char(va_list val);
 int print_int(va_list val);
-void _putchar(char c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 /**
  * struct specifiers - hold sonversion specifiers

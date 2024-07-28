@@ -3,9 +3,9 @@
 /**
  * _putchar - print a character
  * @c: the character
- * Return: nothing
+ * Return: 1 or -1 if any error occurs
  */
-void _putchar(char c)
+int _putchar(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
