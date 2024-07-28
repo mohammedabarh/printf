@@ -13,7 +13,7 @@ int _strlen(char *s);
 int print_str(va_list val)
 int print_char(va_list val);
 int print_int(va_list val);
-void _putchar(char c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 /**
  * struct specifiers - hold sonversion specifiers
@@ -25,7 +25,7 @@ int _printf(const char *format, ...);
 typedef struct specifiers
 {
 	char type;
-	int (*fct)(va_list val);
+	int (*fct)();
 } spec;
 
 #endif /* _MAIN_H */

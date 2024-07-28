@@ -12,9 +12,11 @@ int main(void)
     int len;
     int len2;
 
-    /*len = _printf();*/
-    /*len2 = printf();*/
-    /*_printf("%d\n", len);*/
+    len = _printf("\0");
+    len2 = printf("\0");
+    _printf("\n%d\n", len);
+    printf("\n%d\n", len2);
+    _printf("\n---------------------------\n");
     len = _printf("%d Len of []%", NULL);
     _printf("\n%d\n", len);
     len2 = printf("%d Len of []%", NULL);

@@ -13,6 +13,7 @@ int print_str(va_list val)
 	s = va_arg(val, char *);
 	if (s == NULL)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{
 		s = "(null)";
 		len = _strlen(s);
@@ -20,11 +21,15 @@ int print_str(va_list val)
 			_putchar(s[i]);
 		return (len);
 	}
+=======
+		len = print_err();
+>>>>>>> 819840a37f4527d223f9e366b3236d53e16978c8
 	else
 	{
 		len = _strlen(s);
 		for (i = 0; i < len; i++)
 			_putchar(s[i]);
+<<<<<<< HEAD
 		return (len);
 	}
 =======
@@ -32,6 +37,9 @@ int print_str(va_list val)
 	len = _strlen(s);
 	for (i = 0; i < len; i++)
 		_putchar(s[i]);
+=======
+	}
+>>>>>>> 819840a37f4527d223f9e366b3236d53e16978c8
 	return (len);
 >>>>>>> 77f8a1ad57f222d1d78a41e1015f01bda1cc606e
 }
