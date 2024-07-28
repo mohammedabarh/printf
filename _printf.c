@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include "main.h"
 /**
- * handle_specifier - create a structures that links conversion
+ * handle_specifiers - create a structures that links conversion
  * specifiers with their corresponding structures
  * @s: conversion specifier form in_printf()
  * @val: lateral argument to conversion specifier

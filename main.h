@@ -15,6 +15,11 @@ int print_int(va_list val);
 void _putchar(char c);
 int _printf(const char *format, ...);
 /**
+ * struct specifiers - hold sonversion specifiers
+ * and corresponding functions
+ * @type: the conversion specifier
+ * @fct: corresponding function that handles
+ * va_list val as an argument
  */
 typedef struct specifiers
 {
