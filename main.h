@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 /*Function declarations*/
+int print_err(void);
 int print_pct(void);
 int _strlen(char *s);
 int print_str(char *s);
