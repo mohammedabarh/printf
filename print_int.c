@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <limits.h>
 #include "main.h"
 /**
  * int_to_str - change an  integer number into a string
@@ -42,7 +43,7 @@ int print_int(va_list val)
 	int  i = va_arg(val, int), len = 0;
 	char *num, *n;
 
-	num = malloc(sizeof(i));
+	num = malloc(INT_MAX);
 	if (num == NULL)
 	{
 		free(num);
