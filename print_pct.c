@@ -5,8 +5,6 @@
  */
 int print_pct(void)
 {
-	char symbol = '%';
-
-	_putchar(symbol);
+	_putchar('%');
 	return (1);
 }

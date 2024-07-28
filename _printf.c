@@ -36,7 +36,9 @@ int _printf(const char *format, ...)
 	int i = 0, len = 0, result = 0;
 
 	va_start(str, format);
-	while (format && format[i] != '\0')
+	if (format == NULL)
+		return (0);
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{

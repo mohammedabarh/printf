@@ -23,7 +23,7 @@ char *int_to_str(int a, char *s)
 	if (negative)
 		s[i++] = '-';
 	s[i] = '\0';
-	s_len = _strlen(s);
+	s_len = i;
 	for (i = 0, j = s_len - 1; i < j; i++, j--)
 	{
 		temp = s[i];
@@ -47,11 +47,11 @@ int print_int(va_list val)
 	{
 		s = "(null)";
 		for (a = 0; a < _strlen(s); a++)
-			a++;
-		return (a);
+			len++;
+		return (len);
 	}
 	n = int_to_str(i, num);
 	len = print_str(n);
-	free(n);
+	free(num);
 	return (len);
 }
