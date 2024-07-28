@@ -1,3 +1,4 @@
+
 #include "main.h"
 /**
  * print_37 - prints the char %.
@@ -5,8 +6,8 @@
  */
 int print_37(void)
 {
-	char symbol = '%';
+        char symbol = '%';
 
-	_putchar(symbol);
-	return (1);
+        _putchar(symbol);
+        return (1);
 }
