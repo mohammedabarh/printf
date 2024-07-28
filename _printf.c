@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] != '\0')
 			{
 				if (format[i + 1] == 's')
-					result = print_str(va_arg(str, char*));
+					result = print_str(va_arg(str, char *));
 				else if (format[i + 1] == '%')
 					result = print_pct();
 				else
