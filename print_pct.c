@@ -5,6 +5,6 @@
  */
 int print_pct(void)
 {
-	_putchar('%');
+	_putchar('*');
 	return (1);
 }
