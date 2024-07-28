@@ -6,8 +6,9 @@
 int print_err(void)
 {
 	char *s = "(null)";
-	int i, length = _strlen(s);
+	int i, length;
 
+	length = _strlen(s);
 	for (i = 0; i < length; i++)
 		_putchar(s[i]);
 	return (length);

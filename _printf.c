@@ -35,8 +35,8 @@ int _printf(const char *format, ...)
 	va_list str;
 	int i = 0, len = 0, result = 0;
 
-	if (format == NULL || *format == '\0')
-		return (-1);
+	if (!format || *format == '\0')
+		return (0);
 	va_start(str, format);
 	while (format[i] != '\0')
 	{
