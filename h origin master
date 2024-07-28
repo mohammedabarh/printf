@@ -1,0 +1,54 @@
+[33mcf8f750[m[33m ([m[1;36mHEAD[m[33m)[m Handle NULL string
+[33m7bdda90[m Handle errors
+[33mef29972[m Make function _putchar() return the number of bytes written, which is typically '1'
+[33m68deb51[m Handle NULL string
+[33m77f8a1a[m Handle NULL string
+[33m6d5254b[m Handle NULL string
+[33mef0b6ff[m Handle NULL string
+[33m51887c0[m Handle NULL string
+[33mc1f3ab7[m Handle NULL string
+[33m3d9785d[m Handle NULL string
+[33ma5153ff[m Handle NULL string
+[33mc3ff1a5[m Handle NULL string
+[33m1301b4f[m Handle integer overflow
+[33ma084971[m Handle large numbers
+[33m042f37e[m Handle NULL cases
+[33m92a2dc4[m Handle NULL cases
+[33m30f0296[m Handle NULL cases
+[33m9bbff8d[m Handle NULL cases
+[33mfbdf7ab[m Handle NULL cases
+[33m7532c3e[m Handle NULL cases
+[33mb037c18[m Handle NULL cases
+[33mbc02621[m Handle NULL cases
+[33m8d124fa[m Handle NULL cases
+[33maacfd98[m Handle NULL cases
+[33m66022c4[m Handle NULL cases
+[33m18d4d0d[m Handle NULL cases
+[33mfbf3bfb[m Handle NULL cases
+[33mea65b7e[m Create a data structure to handle conversion specifiers
+[33m3ad8630[m Create a data structure to handle conversion specifiers
+[33m6faab25[m Handle memory allocation failure and NULL format
+[33ma3f0e7a[m Increment len after printing a character that follows an unknown conversion specifier
+[33m4e19d60[m Adhere to Betty coding style
+[33m63dc091[m Handle unknown conversion specifiers
+[33m0c83a92[m Ensure that the right length of printed charcters is returned
+[33mb721506[m Fix print_int to handle negative integers
+[33m83411a6[m Fix int_to_str null-terminator handling logic
+[33m3b3c3d0[m Fix syntax error in main.h header file
+[33mbc96b81[m Merge branch 'master' of https://github.com/mohammedabarh/printf Merge branches
+[33m0e9269b[m Find the length of an ouput without any format specifiers
+[33m7319160[m Adhere to Betty coding and documentation style
+[33me226403[m custom printf that handles c, s, %, d & iw! conversion specifiers
+[33mbdc8076[m  file printf
+[33m1994447[m Adhere to Betty coding and documentation style
+[33m05c9c70[m custom printf that handles  c, s, %, d & iw! conversion specifiers
+[33m268ed68[m PRINT PERCENT SIGN
+[33m229452b[m PRINT PERCENT SIGN
+[33m1e25bd0[m FUNCTIONS PRINT
+[33mdf12467[m FUNCTIONS PRINT
+[33mf5143ab[m Merge branch 'master' of https://github.com/mohammedabarh/printf
+[33md4e98bd[m _printf
+[33m9699f60[m Add header file unistd.h
+[33m1bb331f[m Fix syntax error
+[33m3837573[m Create main.h header file & custom putchar()
+[33m2ba7ea0[m readme
