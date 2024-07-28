@@ -19,8 +19,7 @@ int _printf(const char *format, ...);
  * struct specifiers - hold sonversion specifiers
  * and corresponding functions
  * @type: the conversion specifier
- * @fct: corresponding function that handles
- * va_list val as an argument
+ * @fct: function corresponding to specifier
  */
 typedef struct specifiers
 {

@@ -39,7 +39,7 @@ int handle_specifiers(char s, va_list val)
 int _printf(const char *format, ...)
 {
 	va_list str;
-	int i = 0, len = 0, result = 0;
+	int i = 0, j, len = 0, result = 0;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
@@ -50,29 +50,31 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] != '\0')
 			{
-				result = handle_specifiers(format[i + 1], str);
-				if (result == 0)
+				j = i + 1;
+				while (format[j] != '\0' && format[j] != ' ')
 				{
+					result = handle_specifiers(format[j], str);
+					if (result > 0)
+					{
+						len += result;
+						break;
+					}
 					_putchar(format[i]);
-					_putchar(format[i + 1]);
+					_putchar(format[j]);
 					len += 2;
+					break;
 				}
-				else
-					len += result;
-				i += 2;
+				i = j;
 			}
 			else
-			{
-				va_end(str);
 				return (-1);
-			}
 		}
 		else
 		{
 			_putchar(format[i]);
 			len++;
-			i++;
 		}
+		i++;
 	}
 	va_end(str);
 	return (len);
