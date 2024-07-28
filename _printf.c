@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 
 	va_start(str, format);
 	if (format == NULL)
-		return (print_err());
+		return (0);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
 				i++;
 			}
 			else
-				return (print_err());
+				break;
 		}
 		else
 		{
