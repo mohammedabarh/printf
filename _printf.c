@@ -15,11 +15,10 @@ int handle_specifiers(char s, va_list val)
 		{'%', print_pct},
 		{'d', print_int},
 		{'i', print_int},
-		{'\0', NULL}
 	};
 	int i = 0, len = 0;
 
-	while (sp[i].type != '\0')
+	while (i < 5)
 	{
 		if (sp[i].type == s)
 		{
