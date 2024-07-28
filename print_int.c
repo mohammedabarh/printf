@@ -46,7 +46,7 @@ int print_int(va_list val)
 	if (num == NULL)
 	{
 		free(num);
-		return (-1);
+		return (print_err());
 	}
 	n = int_to_str(i, num);
 	len = print_str(n);
