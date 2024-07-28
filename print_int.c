@@ -39,12 +39,17 @@ char *int_to_str(int a, char *s)
  */
 int print_int(va_list val)
 {
-	int  i = va_arg(val, int), len = 0;
-	char *num, *n;
+	int  i = va_arg(val, int), a, len = 0;
+	char *num, *n, *s;
 
 	num = malloc(sizeof(i));
 	if (num == NULL)
-		return (-1);
+	{
+		s = "(null)";
+		for (a = 0; a < _strlen(s); a++)
+			a++;
+		return (a);
+	}
 	n = int_to_str(i, num);
 	len = print_str(n);
 	free(n);

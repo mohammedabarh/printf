@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * print_37 - prints the char %.
+ * print_pct - prints the char %.
  * Return: 1.
  */
-int print_37(void)
+int print_pct(void)
 {
 	char symbol = '%';
 
