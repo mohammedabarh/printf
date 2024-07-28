@@ -6,12 +6,9 @@
 int print_err(void)
 {
 	char *s = "(null)";
-	int i, len = 0;
+	int i, len = _strlen(s);
 
-	for (i = 0; i < _strlen(s); i++)
-	{
+	for (i = 0; i < len; i++)
 		_putchar(s[i]);
-		len++;
-	}
 	return (len);
 }
