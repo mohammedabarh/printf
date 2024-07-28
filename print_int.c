@@ -44,7 +44,7 @@ int print_int(va_list val)
 
 	num = malloc(sizeof(i));
 	if (num == NULL)
-		return (print_err());
+		return (-1);
 	n = int_to_str(i, num);
 	len = print_str(n);
 	free(num);

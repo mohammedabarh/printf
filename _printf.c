@@ -35,14 +35,14 @@ int _printf(const char *format, ...)
 	va_list str;
 	int i = 0, len = 0, result = 0;
 
+	if (format == NULL || *format == '\0')
+		return (-1);
 	va_start(str, format);
-	if (format == NULL)
-		return (0);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1])
+			if (format[i + 1] != '\0')
 			{
 				if (format[i + 1] == 's')
 					result = print_str(va_arg(str, char*));
@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
 				i++;
 			}
 			else
-				break;
+				return (-1);
 		}
 		else
 		{
