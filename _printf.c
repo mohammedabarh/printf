@@ -11,6 +11,8 @@ int handle_specifiers(char s, va_list val)
 {
 	spec sp[] = {
 		{'c', print_char},
+		{'s', print_str},
+		{'%', print_pct},
 		{'d', print_int},
 		{'i', print_int},
 		{'\0', NULL}
@@ -20,7 +22,12 @@ int handle_specifiers(char s, va_list val)
 	while (sp[i].type != '\0')
 	{
 		if (sp[i].type == s)
-			len = sp[i].fct(val);
+		{
+			if (sp[i].type == 's')
+				len = sp[i].fct(va_arg(val, char*));
+			else
+				len = sp[i].fct(val);
+		}
 		i++;
 	}
 	return (len);
@@ -44,12 +51,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] != '\0')
 			{
-				if (format[i + 1] == 's')
-					result = print_str(va_arg(str, char *));
-				else if (format[i + 1] == '%')
-					result = print_pct();
-				else
-					result = handle_specifiers(format[i + 1], str);
+				result = handle_specifiers(format[i + 1], str);
 				if (result == 0)
 				{
 					_putchar(format[i]);

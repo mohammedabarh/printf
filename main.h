@@ -25,7 +25,7 @@ int _printf(const char *format, ...);
 typedef struct specifiers
 {
 	char type;
-	int (*fct)(va_list val);
+	int (*fct)();
 } spec;
 
 #endif /* _MAIN_H */
