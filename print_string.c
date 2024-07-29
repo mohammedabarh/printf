@@ -27,7 +27,7 @@ int print_string(va_list val)
 				_putchar('0');
 				total_length++;
 			}
-			total_length += print_HEX_rem(char_value);
+			total_length += print_HEX_aux(char_value);
 		}
 		else
 		{
