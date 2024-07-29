@@ -48,27 +48,24 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] != '\0')
+			j = i + 1;
+			if (format[j] == '\0')
+				return (-1);
+			while (format[j] != '\0' && format[j] != ' ')
 			{
-				j = i + 1;
-				while (format[j] != '\0' && format[j] != ' ')
+				result = handle_specifiers(format[j], str);
+				if (result > 0)
 				{
-					result = handle_specifiers(format[j], str);
-					if (result > 0)
-					{
-						len += result;
-						i = j;
-						break;
-					}
-					_putchar(format[i]);
-					_putchar(format[j]);
-					len += 2;
+					len += result;
 					i = j;
 					break;
 				}
+				_putchar(format[i]);
+				_putchar(format[j]);
+				i = j;
+				len += 2;
+				break;
 			}
-			else
-				return (-1);
 		}
 		else
 		{
