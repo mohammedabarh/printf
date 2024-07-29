@@ -16,7 +16,7 @@ int print_S(va_list val)
 	while (n[i])
 	{
 		j = (unsigned char)n[i];
-		if ((0 < j && j < 32) || j >= 127)
+		if ((0 < j && 32 > j) || 127 <= j)
 		{
 			_putchar('\\');
 			_putchar('x');
