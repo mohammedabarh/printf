@@ -8,34 +8,28 @@
  */
 int print_binary(va_list val)
 {
-	int printed_chars = 0;
-	int leading_zero = 0;
-	unsigned int number = va_arg(val, unsigned int);
+	int flag = 0;
+	int cont = 0;
+	int i, a = 1, b;
+	unsigned int num = va_arg(val, unsigned int);
 	unsigned int p;
-	int bit_position;
 
-	for (bit_position = 31; bit_position >= 0; bit_position--)
+	for (i = 0; i < 32; i++)
 	{
-		p = 1U << bit_position;
-		if ((number & p) != 0)
+		p = ((a << (31 - i)) & num);
+		if (p >> (31 - i))
+			flag = 1;
+		if (flag)
 		{
-			leading_zero = 1;
-			_putchar('1');
-			printed_chars++;
-		}
-		else if (leading_zero)
-		{
-			_putchar('0');
-			printed_chars++;
+			b = p >> (31 - i);
+			_putchar(b + 48);
+			cont++;
 		}
 	}
-
-	if (printed_chars == 0)
+	if (cont == 0)
 	{
+		cont++;
 		_putchar('0');
-		printed_chars = 1;
 	}
-
-	return (printed_chars);
+	return (cont);
 }
-
