@@ -15,6 +15,7 @@ int handle_specifiers(char s, va_list val)
 		{'%', print_pct},
 		{'d', print_int},
 		{'i', print_int},
+		{'b', print_binary},
 	};
 	unsigned int i = 0;
 

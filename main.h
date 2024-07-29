@@ -11,6 +11,7 @@ int print_err(void);
 int print_pct(void);
 int _strlen(char *s);
 int print_str(char *s);
+int print_binary(va_list val);
 int print_char(va_list val);
 int print_int(va_list val);
 int _putchar(char c);

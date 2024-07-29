@@ -12,16 +12,13 @@ int main(void)
     int len;
     int len2;
 
-    /*len = _printf("\0")*/
-    /*len2 = printf("\0")*/
     len = 1;
     len2 = 2;
-    _printf("\n%zcv \n", len);
-    printf("\n%zcv\n", len2);
+    _printf("\n%lucv \n", (long unsigned int)len);
+    printf("\n%lucv\n", (long unsigned int)len2);
     _printf("\n---------------------------\n");
     len = _printf("%d Len of []%", NULL);
     _printf("\n%d\n", len);
-   /* len2 = printf("%d Len of []%", NULL);*/
     printf("\n%d\n", len2);
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
