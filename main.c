@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+#include "main.h"
+#include <stdio.h>
+=======
 #include <limits.h>
 #include <stdio.h>
 #include "main.h"
 
+>>>>>>> 33f2fe9967db9df79cab242638357c502cf8aecf
 /**
  * main - Entry point
  *
@@ -9,6 +14,10 @@
  */
 int main(void)
 {
+<<<<<<< HEAD
+    _printf("%b\n", 98);
+    return (0);
+=======
     int len;
     int len2;
 
@@ -53,4 +62,5 @@ int main(void)
     _printf("Integer test len: [%d]\n", len);
     printf("Integer test len: [%d]\n", len2);
     return 0;
+>>>>>>> 33f2fe9967db9df79cab242638357c502cf8aecf
 }

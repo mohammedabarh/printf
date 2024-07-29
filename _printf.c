@@ -9,6 +9,10 @@
 int handle_specifiers(char s, va_list val)
 {
 	spec sp[] = {
+<<<<<<< HEAD
+		{'c', print_char}, {'s', print_str}, {'%', print_pct},
+		{'d', print_int}, {'i', print_int}, {'b', print_bin}
+=======
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_pct},
@@ -16,10 +20,11 @@ int handle_specifiers(char s, va_list val)
 		{'i', print_int},
 		{'b', print_binary},
 		{'i', print_int}
+>>>>>>> 33f2fe9967db9df79cab242638357c502cf8aecf
 	};
 	unsigned int i = 0;
 
-	while (i < 5)
+	while (i < 6)
 	{
 		if (sp[i].type == s)
 		{
