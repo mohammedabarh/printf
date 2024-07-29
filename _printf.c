@@ -41,10 +41,10 @@ int _printf(const char *format, ...)
 	va_list str;
 	int i = 0, j, len = 0, result = 0;
 
-	va_start(str, format);
 	if (format == NULL)
 		return (-1);
-	while (format[i] != '\0')
+	va_start(str, format);
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
