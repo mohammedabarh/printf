@@ -42,14 +42,14 @@ int _printf(const char *format, ...)
 	int i = 0, j, len = 0, result = 0;
 
 	va_start(str, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			j = i + 1;
-			if (format[j] == '\0')
+			if (format[j] == '\0' || (format[0] && format[1] == '\0'))
 				return (-1);
 			while (format[j] != '\0' && format[j] != ' ')
 			{
