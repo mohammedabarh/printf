@@ -1,4 +1,16 @@
-#include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
+
+/**
+ * _putchar - Writes a character to the standard output
+ * @c: The character to print
+ *
+ * Return: On success, 1 is returned. On error, -1 is returned.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 /**
  * print_binary - Outputs the binary form of an unsigned integer.
@@ -8,28 +20,34 @@
  */
 int print_binary(va_list val)
 {
-	int flag = 0;
-	int cont = 0;
-	int i, a = 1, b;
-	unsigned int num = va_arg(val, unsigned int);
+	int printed_chars = 0;
+	int leading_zero = 0;
+	unsigned int number = va_arg(val, unsigned int);
 	unsigned int p;
+	int bit_position;
 
-	for (i = 0; i < 32; i++)
+	for (bit_position = 31; bit_position >= 0; bit_position--)
 	{
-		p = ((a << (31 - i)) & num);
-		if (p >> (31 - i))
-			flag = 1;
-		if (flag)
+		p = 1U << bit_position;
+		if ((number & p) != 0)
 		{
-			b = p >> (31 - i);
-			_putchar(b + 48);
-			cont++;
+			leading_zero = 1;
+			_putchar('1');
+			printed_chars++;
+		}
+		else if (leading_zero)
+		{
+			_putchar('0');
+			printed_chars++;
 		}
 	}
-	if (cont == 0)
+
+	if (printed_chars == 0)
 	{
-		cont++;
 		_putchar('0');
+		printed_chars = 1;
 	}
-	return (cont);
+
+	return (printed_chars);
 }
+
