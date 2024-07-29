@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  * handle_specifiers - create a structures that links conversion
@@ -14,12 +13,9 @@ int handle_specifiers(char s, va_list val)
 		{'s', print_str},
 		{'%', print_pct},
 		{'d', print_int},
-<<<<<<< HEAD
 		{'i', print_int},
 		{'b', print_binary},
-=======
 		{'i', print_int}
->>>>>>> b123676cafeb4592e4e3950326b87112275c5d34
 	};
 	unsigned int i = 0;
 
