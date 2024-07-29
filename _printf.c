@@ -14,7 +14,7 @@ int handle_specifiers(char s, va_list val)
 		{'s', print_str},
 		{'%', print_pct},
 		{'d', print_int},
-		{'i', print_int},
+		{'i', print_int}
 	};
 	unsigned int i = 0;
 
