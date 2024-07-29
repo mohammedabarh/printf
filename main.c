@@ -17,7 +17,6 @@ int main(void)
     len = 1;
     len2 = 2;
     _printf("\n%zcv \n", len);
-    printf("\n%zcv\n", len2);
     _printf("\n---------------------------\n");
     len = _printf("%d Len of []%", NULL);
     _printf("\n%d\n", len);
