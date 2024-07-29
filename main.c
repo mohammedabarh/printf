@@ -1,5 +1,6 @@
 #include <limits.h>
 #include <stdio.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -17,6 +18,10 @@ int main(void)
     len = 1;
     len2 = 2;
     _printf("\n%zcv \n", len);
+    /*len = _strlen(NULL);*/
+    /*len2 = strlen(NULL);*/
+    /*_printf("%i", len);*/
+    printf("%i", len2);
     _printf("\n---------------------------\n");
     len = _printf("%d Len of []%", NULL);
     _printf("\n%d\n", len);
