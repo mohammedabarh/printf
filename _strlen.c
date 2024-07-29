@@ -11,7 +11,7 @@ int _strlen(char *s)
 	int c = 0;
 
 	if (s == NULL)
-		return (0);
+		return (print_err());
 	while (s[c] != '\0')
 		c++;
 	return (c);
