@@ -23,9 +23,9 @@ int handle_specifiers(char s, va_list val)
 		if (sp[i].type == s)
 		{
 			if (sp[i].type == 's')
-				len = sp[i].fct(va_arg(val, char*));
+				len += sp[i].fct(va_arg(val, char*));
 			else
-				len = sp[i].fct(val);
+				len += sp[i].fct(val);
 		}
 		i++;
 	}
@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			j = i + 1;
-			if (format[j] == '\0' || (format[0] && format[1] == '\0'))
+			if (format[j] == '\0')
 				return (-1);
 			while (format[j] != '\0' && format[j] != ' ')
 			{
