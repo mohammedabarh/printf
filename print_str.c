@@ -8,12 +8,14 @@
  */
 int print_str(char *s)
 {
-	int i, len = 0;
+	int i = 0;
 
 	if (s == NULL)
 		return (print_err());
-	len = _strlen(s);
-	for (i = 0; i < len; i++)
+	while (s[i])
+	{
 		_putchar(s[i]);
-	return (len);
+		i++;
+	}
+	return (i);
 }
