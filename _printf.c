@@ -14,8 +14,12 @@ int handle_specifiers(char s, va_list val)
 		{'s', print_str},
 		{'%', print_pct},
 		{'d', print_int},
+<<<<<<< HEAD
 		{'i', print_int},
 		{'b', print_binary},
+=======
+		{'i', print_int}
+>>>>>>> b123676cafeb4592e4e3950326b87112275c5d34
 	};
 	unsigned int i = 0;
 
@@ -40,39 +44,33 @@ int handle_specifiers(char s, va_list val)
 int _printf(const char *format, ...)
 {
 	va_list str;
-	int i = 0, j, len = 0, result = 0;
+	int i = 0, j, len = 0, result;
 
 	if (format == NULL)
 		return (-1);
 	va_start(str, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
-		{
-			j = i + 1;
-			if (format[j] == '\0')
-				return (-1);
-			while (format[j] != '\0' && format[j] != ' ')
-			{
-				result = handle_specifiers(format[j], str);
-				if (result != 0)
-				{
-					len += result;
-					i = j;
-					break;
-				}
-				_putchar(format[i]);
-				_putchar(format[j]);
-				i = j;
-				len += 2;
-				break;
-			}
-		}
-		else
+		while (format[i] != '%' && format[i] != '\0')
 		{
 			_putchar(format[i]);
 			len++;
+			i++;
 		}
+		if (format[i] == '\0')
+			return (len);
+		j = i + 1;
+		while (format[j] == '\0')
+			return (-1);
+		result = handle_specifiers(format[j], str);
+		if (result != 0)
+		{
+			len += result;
+			i += 2;
+			continue;
+		}
+		_putchar(format[i]);
+		len++;
 		i++;
 	}
 	va_end(str);

@@ -8,15 +8,10 @@
  */
 int _strlen(char *s)
 {
-	int c = 0, l;
+	int c = 0;
 
 	if (s == NULL)
-	{
-		s = "(null)";
-		for (c = 0; c < _strlen(s); c++)
-			l++;
-		return (l);
-	}
+		return (print_err());
 	while (s[c] != '\0')
 		c++;
 	return (c);
