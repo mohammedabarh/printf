@@ -13,6 +13,7 @@ int print_str(char *s);
 int print_char(va_list val);
 int print_int(va_list val);
 int print_bin(va_list val);
+int print_unsigned(va_list args);
 int _putchar(char c);
 int _printf(const char *format, ...);
 /**
