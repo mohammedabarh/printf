@@ -16,18 +16,18 @@ int handle_specifiers(char s, va_list val)
 		{'d', print_int},
 		{'i', print_int},
 	};
-	int i = 0, len = 0;
+	int i = 4, len = 0;
 
-	while (i < 5)
+	while (i >= 0)
 	{
 		if (sp[i].type == s)
 		{
 			if (sp[i].type == 's')
-				len += sp[i].fct(va_arg(val, char*));
+				len = sp[i].fct(va_arg(val, char*));
 			else
-				len += sp[i].fct(val);
+				len = sp[i].fct(val);
 		}
-		i++;
+		i--;
 	}
 	return (len);
 }
