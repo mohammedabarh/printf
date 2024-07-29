@@ -20,7 +20,7 @@ void print_bin_rem(unsigned int num, char *s, unsigned int *a)
 	s[(*a)++] = (num % 2) + '0';
 }
 /**
- * print_bin = custom conversion to binary
+ * print_bin - custom conversion to binary
  * @val: the argument to convert
  * Return: length of printed numbers
  */

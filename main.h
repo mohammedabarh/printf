@@ -13,6 +13,11 @@ int print_str(char *s);
 int print_char(va_list val);
 int print_int(va_list val);
 int print_bin(va_list val);
+int print_oct(va_list val);
+int print_unsign(va_list val);
+int print_oct(va_list val);
+int print_hex(va_list val);
+int print_HEX(va_list val);
 int _putchar(char c);
 int _printf(const char *format, ...);
 /**
