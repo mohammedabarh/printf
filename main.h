@@ -18,6 +18,8 @@ int print_unsign(va_list val);
 int print_oct(va_list val);
 int print_hex(va_list val);
 int print_HEX(va_list val);
+int print_S(va_list val);
+int print_ptr(va_list val);
 int _putchar(char c);
 int _printf(const char *format, ...);
 /**
