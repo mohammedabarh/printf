@@ -66,10 +66,7 @@ int _printf(const char *format, ...)
 			return (-1);
 		_putchar(format[i]);
 		len++;
-		if (format[j] == '%')
-			i += 2;
-		else
-			i++;
+		i++;
 	}
 	va_end(str);
 	return (len);
