@@ -1,12 +1,4 @@
-<<<<<<< HEAD
 #include "main.h"
-#include <stdio.h>
-=======
-#include <limits.h>
-#include <stdio.h>
-#include "main.h"
-
->>>>>>> 33f2fe9967db9df79cab242638357c502cf8aecf
 /**
  * main - Entry point
  *
@@ -14,18 +6,12 @@
  */
 int main(void)
 {
-<<<<<<< HEAD
-    _printf("%b\n", 98);
-    return (0);
-=======
-    int len;
-    int len2;
+    int len, len2;
 
     len = 1;
     len2 = 2;
-    _printf("\n%lucv \n", (long unsigned int)len);
-    printf("\n%lucv\n", (long unsigned int)len2);
-    _printf("\n---------------------------\n");
+    _printf("%b\n", 98);
+    _printf("\n\n\n---------------------------\n");
     len = _printf("%d Len of []%", NULL);
     _printf("\n%d\n", len);
     printf("\n%d\n", len2);
@@ -62,5 +48,4 @@ int main(void)
     _printf("Integer test len: [%d]\n", len);
     printf("Integer test len: [%d]\n", len2);
     return 0;
->>>>>>> 33f2fe9967db9df79cab242638357c502cf8aecf
 }
