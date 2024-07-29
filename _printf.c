@@ -57,14 +57,15 @@ int _printf(const char *format, ...)
 					if (result > 0)
 					{
 						len += result;
+						i = j;
 						break;
 					}
 					_putchar(format[i]);
 					_putchar(format[j]);
 					len += 2;
+					i = j;
 					break;
 				}
-				i = j;
 			}
 			else
 				return (-1);

@@ -5,6 +5,6 @@
  */
 int print_pct(void)
 {
-	_putchar(37);
+	_putchar('%');
 	return (1);
 }
