@@ -16,7 +16,7 @@ int handle_specifiers(char s, va_list val)
 		{'d', print_int},
 		{'i', print_int},
 	};
-	int i = 0;
+	unsigned int i = 0;
 
 	while (i < 5)
 	{
@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 			while (format[j] != '\0' && format[j] != ' ')
 			{
 				result = handle_specifiers(format[j], str);
-				if (result > 0)
+				if (result != 0)
 				{
 					len += result;
 					i = j;
