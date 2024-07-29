@@ -11,7 +11,8 @@ int handle_specifiers(char s, va_list val)
 	spec sp[] = {
 		{'c', print_char}, {'s', print_str}, {'%', print_pct},
 		{'d', print_int}, {'i', print_int}, {'b', print_bin},
-		{'u', print_unsign}, {'o', print_oct}, {'x', print_hex}
+		{'u', print_unsign}, {'o', print_oct}, {'x', print_hex},
+		{'X', print_HEX}, {'S', print_S}, {'p', print_ptr}
 	};
 	unsigned int i = 0;
 
