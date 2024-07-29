@@ -55,6 +55,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '\0')
 			return (len);
 		j = i + 1;
+		while (format[j] == '\0')
+			return (-1);
 		result = handle_specifiers(format[j], str);
 		if (result != 0)
 		{
@@ -62,8 +64,6 @@ int _printf(const char *format, ...)
 			i += 2;
 			continue;
 		}
-		if (format[j] == '\0')
-			return (-1);
 		_putchar(format[i]);
 		len++;
 		i++;
