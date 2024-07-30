@@ -8,6 +8,7 @@
 
 /*Function declarations*/
 int print_err(void);
+int print_null(void);
 int print_pct(void);
 int print_str(char *s);
 int print_char(va_list val);

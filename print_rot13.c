@@ -13,7 +13,7 @@ int print_rot13(va_list val)
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	if (s == NULL)
-		return (print_err());
+		return (print_null());
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
