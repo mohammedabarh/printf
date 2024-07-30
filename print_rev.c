@@ -18,7 +18,7 @@ int print_rev(va_list val)
 		string = ")Null(";
 	}
 
-	while (*(string + length) != '\0')
+	while (*(string + length))
 	{
 		length++;
 	}
