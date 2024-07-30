@@ -41,8 +41,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
 	va_start(str, format);
 	while (format[i])
 	{
@@ -54,22 +52,20 @@ int _printf(const char *format, ...)
 		}
 		if (format[i] == '\0')
 			return (len);
-		if (format[i] == '%')
+		j = i + 1;
+		if (format[j] == '\0')
+			return (-1);
+		result = handle_specifiers(format[j], str);
+		if (result != 0)
 		{
-			j = i + 1;
-			if (format[j] == '\0')
-				return (-1);
-			result = handle_specifiers(format[j], str);
-			if (result != 0)
-			{
-				len += result;
-				i += 2;
-				continue;
-			}
-			_putchar(format[i]);
-			len++;
-			i++;
+			len += result;
+			i += 2;
+			continue;
 		}
+		_putchar(format[i]);
+		_putchar(format[j]);
+		len += 2;
+		i += 2;
 	}
 	va_end(str);
 	return (len);
