@@ -24,7 +24,6 @@ int print_HEX(va_list val);
 int print_S(va_list val);
 int print_ptr(va_list val);
 int _putchar(char c);
-int handle_specifiers(char s, va_list val);
 int _printf(const char *format, ...);
 /**
  * struct specifiers - hold sonversion specifiers
