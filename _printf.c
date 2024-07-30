@@ -60,16 +60,15 @@ int _printf(const char *format, ...)
 			if (format[j] == '\0')
 				return (-1);
 			result = handle_specifiers(format[j], str);
-			if (result > 0)
+			if (result != 0)
 			{
 				len += result;
 				i += 2;
 				continue;
 			}
 			_putchar(format[i]);
-			_putchar(format[j]);
-			len += 2;
-			i += 2;
+			len++;
+			i++;
 		}
 	}
 	va_end(str);
