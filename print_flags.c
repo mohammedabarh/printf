@@ -1,8 +1,51 @@
-#include "main.h"
-#include "print_helpers.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
- * print_d_i - prints integer or decimal
+ * _putchar - prints a character to stdout
+ * @c: character to print
+ */
+void _putchar(char c)
+{
+	putchar(c);
+}
+
+/**
+ * print_digits - prints the digits of a number
+ * @n: number to print
+ * Return: number of characters printed
+ */
+int print_digits(int n)
+{
+	int num = n;
+	int exp = 1;
+	int digit;
+	int count = 0;
+
+	/* Find the number of digits */
+	while (num / exp > 0)
+	{
+		exp *= 10;
+	}
+	exp /= 10; /* Adjust exp to the highest place value */
+
+	/* Print the digits */
+	num = n;
+	while (exp > 0)
+	{
+		digit = num / exp;
+		_putchar(digit + '0');
+		num %= exp;
+		exp /= 10;
+		count++;
+	}
+
+	return (count);
+}
+
+/**
+ * print_d_i - prints integer or decimal with handling of flags and digits
  * @args: argument to print
  * @flags: flags for formatting
  * Return: integer
@@ -10,34 +53,44 @@
 int print_d_i(va_list args, char *flags)
 {
 	int n = va_arg(args, int);
-	int num = n;
-	int i = 1;
+	int i = 0;
 
+	/* Handle sign and flags */
 	if (n < 0)
 	{
 		_putchar('-');
-		num = -n;
+		n = -n; /* Make n positive for further processing */
 		i++;
 	}
 	else
 	{
-		i += handle_flags(flags);
+		if (strchr(flags, '+'))
+		{
+			_putchar('+');
+			i++;
+		}
+		else if (strchr(flags, ' '))
+		{
+			_putchar(' ');
+			i++;
+		}
 	}
 
-	if (num == 0)
+	/* Special case for 0 */
+	if (n == 0)
 	{
 		_putchar('0');
-		return (i);
+		return (i + 1);
 	}
 
-	int exp = get_exponent(num);
-	print_number(num, exp, &i);
+	/* Print digits */
+	i += print_digits(n);
 
 	return (i);
 }
 
 /**
- * print_d - calls print_d_i to print decimal
+ * print_d - prints integer or decimal
  * @args: argument to print
  * @flags: flags for formatting
  * Return: integer
@@ -48,7 +101,7 @@ int print_d(va_list args, char *flags)
 }
 
 /**
- * print_i - calls print_d_i to print integer
+ * print_i - prints integer or decimal
  * @args: argument to print
  * @flags: flags for formatting
  * Return: integer
