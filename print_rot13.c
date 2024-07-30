@@ -20,7 +20,7 @@ int print_rot13(va_list val)
 		found = 0;
 		for (j = 0; alpha[j] != '\0' && !found; j++)
 		{
-			if (str[i] == alpha[j])
+			if (s[i] == alpha[j])
 			{
 				_putchar(rot13[j]);
 				counter++;

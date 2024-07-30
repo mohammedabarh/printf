@@ -17,14 +17,15 @@ int print_pointer(va_list val);
 int print_oct(va_list val);
 int print_unsign(va_list val);
 int print_oct(va_list val);
-int print_HEX_aux (unsigned int value);
 int print_rev(va_list val);
 int print_string(va_list val);
 int print_hex(va_list val);
 int print_HEX(va_list val);
+int print_rot13(va_list val);
 int print_S(va_list val);
 int print_ptr(va_list val);
 int _putchar(char c);
+int handle_specifiers(char s, va_list val);
 int _printf(const char *format, ...);
 /**
  * struct specifiers - hold sonversion specifiers
