@@ -12,7 +12,7 @@ int print_S(va_list val)
 
 	n = va_arg(val, char*);
 	if (n == NULL)
-		return (-1);
+		return (print_err());
 	while (n[i])
 	{
 		j = (unsigned char)n[i];
