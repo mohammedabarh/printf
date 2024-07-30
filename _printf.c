@@ -15,7 +15,7 @@ int handle_specifiers(char s, va_list val)
 		{'X', print_HEX}, {'S', print_S}, {'p', print_ptr},
 		{'r', print_rev}, {'R', print_rot13}
 	};
-	unsigned int i = 0, len = 0;
+	unsigned int i = 0;
 
 	while (i < 14)
 	{
