@@ -13,7 +13,7 @@ int print_S(va_list val)
 
 	n = va_arg(val, char*);
 	if (n == NULL)
-		return (print_err());
+		return (0);
 	while (n[i] != '\0')
 	{
 		j = (unsigned char)n[i];
@@ -29,7 +29,7 @@ int print_S(va_list val)
 				_putchar((j % 16) + '0');
 			else
 				_putchar((j % 16) - 10 + 'A');
-			len += 2;
+			len += 4;
 		}
 		else
 		{
