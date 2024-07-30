@@ -17,7 +17,6 @@ int print_pointer(va_list val);
 int print_oct(va_list val);
 int print_unsign(va_list val);
 int print_oct(va_list val);
-int print_HEX_aux (unsigned int value);
 int print_rev(va_list val);
 int print_string(va_list val);
 int print_hex(va_list val);
