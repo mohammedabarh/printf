@@ -29,7 +29,7 @@ int print_S(va_list val)
 				_putchar((j % 16) + '0');
 			else
 				_putchar((j % 16) - 10 + 'A');
-			len += 4;
+			len += 2;
 		}
 		else
 		{
