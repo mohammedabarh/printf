@@ -15,7 +15,7 @@ int print_rev(va_list val)
 
 	if (string == NULL)
 	{
-		string = ")llun(";
+		string = ")lluN(";
 	}
 	while (*(string + length))
 	{
