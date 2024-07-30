@@ -14,7 +14,7 @@ int print_rev(va_list val)
 	int i;
 
 	if (string == NULL)
-		string = ")null(";
+		string = ")LLUN(";
 	while (*(string + length) != '\0')
 	{
 		length++;
