@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include "main.h"
 /**
  * print_ptr - print pointer/ address
@@ -6,27 +7,27 @@
  */
 int print_ptr(va_list val)
 {
-	char c = va_arg(val, int);
-	char *c_ptr = &c;
-	int i = 0, len = 0;
+	void *c = va_arg(val, void*);
+	int i = 0, j, n, len = 0;
+	char hex[16];
+	uintptr_t c_ptr;
 
-	if (c_ptr == NULL)
+	if (c == NULL)
 		return (-1);
 	_putchar('0');
 	_putchar('x');
 	len += 2;
-	while (c_ptr[i] != '\0')
+	c_ptr = (uintptr_t)c;
+	while (c_ptr > 0)
 	{
-		if (c_ptr[i] / 16 < 10)
-			_putchar((c_ptr[i] / 16) + '0');
-		else
-			_putchar((c_ptr[i] / 16) - 10 + 'a');
-		if (c_ptr[i] % 16 < 10)
-			_putchar((c_ptr[i] % 16) + '0');
-		else
-			_putchar((c_ptr[i] % 16) - 10 + 'a');
-		len += 2;
-		i++;
+		n = c_ptr % 16;
+		hex[i++] = (n < 10) ? (n + '0') : (n - 10 + 'a');
+		c_ptr = c_ptr / 16;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(hex[j]);
+		len++;
 	}
 	return (len);
 }
