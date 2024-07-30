@@ -12,11 +12,11 @@ int print_S(va_list val)
 
 	n = va_arg(val, char*);
 	if (n == NULL)
-		return (0);
+		return (-1);
 	while (n[i])
 	{
 		j = (unsigned char)n[i];
-		if ((0 < j && j < 32) || j >= 127)
+		if ((0 < j && 32 > j) || 127 <= j)
 		{
 			_putchar('\\');
 			_putchar('x');
