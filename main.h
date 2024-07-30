@@ -21,6 +21,7 @@ int print_rev(va_list val);
 int print_string(va_list val);
 int print_hex(va_list val);
 int print_HEX(va_list val);
+int print_rot13(va_list val);
 int print_S(va_list val);
 int print_ptr(va_list val);
 int _putchar(char c);

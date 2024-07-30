@@ -13,11 +13,11 @@ int handle_specifiers(char s, va_list val)
 		{'d', print_int}, {'i', print_int}, {'b', print_bin},
 		{'u', print_unsign}, {'o', print_oct}, {'x', print_hex},
 		{'X', print_HEX}, {'S', print_S}, {'p', print_ptr},
-		{'r', print_rev}
+		{'r', print_rev}, {'R', print_rot13}
 	};
 	unsigned int i = 0;
 
-	while (i < 13)
+	while (i < 14)
 	{
 		if (sp[i].type == s)
 		{

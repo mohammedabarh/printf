@@ -14,7 +14,7 @@ int main(void)
     unsigned int ui;
     void *addr;
 
-    len = _printf("%r\n", ")null( Let's try to printf a simple sentence.");
+    len = _printf("%R\n", ")null( Let's try to printf a simple sentence.");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
