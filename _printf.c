@@ -46,13 +46,21 @@ int _printf(const char *format, ...)
 	va_start(str, format);
 	while (format[i])
 	{
+		while (format[i] != '%' && format[i] != '\0')
+		{
+			_putchar(format[i]);
+			len++;
+			i++;
+		}
+		if (format[i] == '\0')
+			return (len);
 		if (format[i] == '%')
 		{
 			j = i + 1;
 			if (format[j] == '\0')
 				return (-1);
 			result = handle_specifiers(format[j], str);
-			if (result != 0)
+			if (result > 0)
 			{
 				len += result;
 				i += 2;
@@ -62,12 +70,6 @@ int _printf(const char *format, ...)
 			_putchar(format[j]);
 			len += 2;
 			i += 2;
-		}
-		else
-		{
-			_putchar(format[i]);
-			len++;
-			i++;
 		}
 	}
 	va_end(str);
