@@ -15,15 +15,15 @@ int print_rev(va_list val)
 
 	if (string == NULL)
 	{
-		string = ")lluN(";
+		string = "(null)";
 	}
-	while (*(string + length))
+	while (string[length] != '\0')
 	{
 		length++;
 	}
 	for (i = length - 1; i >= 0; i--)
 	{
-		_putchar(*(string + i));
+		_putchar(string[i]);
 	}
 	return (length);
 }
