@@ -13,7 +13,7 @@ int print_ptr(va_list val)
 	uintptr_t c_ptr;
 
 	if (c == NULL)
-		return (-1);
+		return (print_err());
 	_putchar('0');
 	_putchar('x');
 	len += 2;

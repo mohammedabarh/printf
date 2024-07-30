@@ -1,45 +1,49 @@
-#include <limits.h>
 #include <stdio.h>
+#include <limits.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+    int len1 = _printf("Testing large positive integer:[%d]\n", INT_MAX);
+    int len2 = printf("Testing large positive integer:[%d]\n", INT_MAX);
+    printf("len1: %d, len2: %d\n", len1, len2);
 
-    len = _printf("%R\n", ")null( Let's try to printf a simple sentence.");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    _printf("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    /*printf("Unknown:[%r]\n");*/
-    _printf("%S\n", "ben\njah");
-    return (0);
+    len1 = _printf("Testing large negative integer:[%d]\n", INT_MIN);
+    len2 = printf("Testing large negative integer:[%d]\n", INT_MIN);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing unsigned integer:[%u]\n", UINT_MAX);
+    len2 = printf("Testing unsigned integer:[%u]\n", UINT_MAX);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing binary representation:[%b]\n", 255);
+    len2 = printf("Testing binary representation:[%b]\n", 255);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing string with special characters:[%s]\n", "Line 1\nLine 2\tTabbed");
+    len2 = printf("Testing string with special characters:[%s]\n", "Line 1\nLine 2\tTabbed");
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing character array:[%c%c%c]\n", 'A', 'B', 'C');
+    len2 = printf("Testing character array:[%c%c%c]\n", 'A', 'B', 'C');
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing large string length:[%s]\n", "This is a very long string that exceeds the typical length for testing purposes.");
+    len2 = printf("Testing large string length:[%s]\n", "This is a very long string that exceeds the typical length for testing purposes.");
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing octal for edge case:[%o]\n", 0);
+    len2 = printf("Testing octal for edge case:[%o]\n", 0);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing hexadecimal for edge case:[%x]\n", 0);
+    len2 = printf("Testing hexadecimal for edge case:[%x]\n", 0);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing address with null pointer:[%p]\n", NULL);
+    len2 = printf("Testing address with null pointer:[%p]\n", NULL);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    return 0;
 }
+

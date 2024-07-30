@@ -5,7 +5,7 @@
  */
 int print_err(void)
 {
-	char *s = "(null)";
+	char *s = "(nil)";
 	int i = 0;
 
 	while (s[i])
