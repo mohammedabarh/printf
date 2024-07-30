@@ -12,13 +12,9 @@ int handle_specifiers(char s, va_list val)
 		{'c', print_char}, {'s', print_str}, {'%', print_pct},
 		{'d', print_int}, {'i', print_int}, {'b', print_bin},
 		{'u', print_unsign}, {'o', print_oct}, {'x', print_hex},
-<<<<<<< HEAD
-		{'X', print_HEX}, {'p', print_pointer}
-=======
 		{'X', print_HEX}, {'S', print_S}, {'p', print_ptr}
->>>>>>> 98f72f2e9787f318486c2ff987e695a230d2c5c9
 	};
-	unsigned int i = 0;i
+	unsigned int i = 0;
 
 	while (i < 12)
 	{
