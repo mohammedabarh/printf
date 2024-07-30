@@ -15,8 +15,7 @@ int print_rev(va_list val)
 
 	if (string == NULL)
 	{
-		string = "(nil)";
-		return (print_str(string));
+		return (print_err());
 	}
 	while (*(string + length) != '\0')
 	{
