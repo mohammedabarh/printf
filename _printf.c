@@ -15,7 +15,7 @@ int handle_specifiers(char s, va_list val)
 		{'X', print_HEX}, {'S', print_S}, {'p', print_ptr},
 		{'r', print_rev}, {'R', print_rot13}
 	};
-	unsigned int i = 0;
+	unsigned int i = 0, len = 0;
 
 	while (i < 14)
 	{
@@ -23,8 +23,7 @@ int handle_specifiers(char s, va_list val)
 		{
 			if (sp[i].type == 's')
 				return (sp[i].fct(va_arg(val, char*)));
-			else
-				return (sp[i].fct(val));
+			return (sp[i].fct(val));
 		}
 		i++;
 	}
