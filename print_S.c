@@ -12,9 +12,7 @@ int print_S(va_list val)
 	unsigned char j;
 
 	n = va_arg(val, char*);
-	if (n == NULL)
-		return (print_null());
-	while (n[i] != '\0')
+	while (n[i])
 	{
 		j = (unsigned char)n[i];
 		if ((0 < j && 32 > j) || 127 <= j)
