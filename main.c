@@ -4,44 +4,59 @@
 
 int main(void)
 {
-    int len1 = _printf("Testing large positive integer:[%d]\n", INT_MAX);
-    int len2 = printf("Testing large positive integer:[%d]\n", INT_MAX);
+    unsigned int ui = (unsigned int)INT_MAX + 1024;
+    void *addr = (void *)0x7ffe637541f0; /* Non-NULL address for testing */
+
+    int len1 = _printf("Testing NULL string:[%s]\n", NULL);
+    int len2 = printf("Testing NULL string:[%s]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing large negative integer:[%d]\n", INT_MIN);
-    len2 = printf("Testing large negative integer:[%d]\n", INT_MIN);
+    len1 = _printf("Testing NULL character:[%c]\n", '\0');
+    len2 = printf("Testing NULL character:[%c]\n", '\0');
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing unsigned integer:[%u]\n", UINT_MAX);
-    len2 = printf("Testing unsigned integer:[%u]\n", UINT_MAX);
+    len1 = _printf("Testing NULL pointer:[%p]\n", addr);
+    len2 = printf("Testing NULL pointer:[%p]\n", addr);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing binary representation:[%b]\n", 255);
-    len2 = printf("Testing binary representation:[%b]\n", 255);
+    len1 = _printf("Testing unsigned with max value:[%u]\n", ui);
+    len2 = printf("Testing unsigned with max value:[%u]\n", ui);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing string with special characters:[%s]\n", "Line 1\nLine 2\tTabbed");
-    len2 = printf("Testing string with special characters:[%s]\n", "Line 1\nLine 2\tTabbed");
+    len1 = _printf("Testing signed with max value:[%d]\n", (int)ui);
+    len2 = printf("Testing signed with max value:[%d]\n", (int)ui);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing character array:[%c%c%c]\n", 'A', 'B', 'C');
-    len2 = printf("Testing character array:[%c%c%c]\n", 'A', 'B', 'C');
+    len1 = _printf("Testing octal with max value:[%o]\n", ui);
+    len2 = printf("Testing octal with max value:[%o]\n", ui);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing large string length:[%s]\n", "This is a very long string that exceeds the typical length for testing purposes.");
-    len2 = printf("Testing large string length:[%s]\n", "This is a very long string that exceeds the typical length for testing purposes.");
+    len1 = _printf("Testing hexadecimal with max value:[%x]\n", ui);
+    len2 = printf("Testing hexadecimal with max value:[%x]\n", ui);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing octal for edge case:[%o]\n", 0);
-    len2 = printf("Testing octal for edge case:[%o]\n", 0);
+    len1 = _printf("Testing uppercase hexadecimal with max value:[%X]\n", ui);
+    len2 = printf("Testing uppercase hexadecimal with max value:[%X]\n", ui);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing hexadecimal for edge case:[%x]\n", 0);
-    len2 = printf("Testing hexadecimal for edge case:[%x]\n", 0);
+    len1 = _printf("Testing NULL for binary:[%b]\n", NULL);
+    len2 = printf("Testing NULL for binary:[%b]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
 
-    len1 = _printf("Testing address with null pointer:[%p]\n", NULL);
-    len2 = printf("Testing address with null pointer:[%p]\n", NULL);
+    len1 = _printf("Testing percent sign:[%%]\n");
+    len2 = printf("Testing percent sign:[%%]\n");
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing NULL for integer:[%i]\n", NULL);
+    len2 = printf("Testing NULL for integer:[%i]\n", NULL);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing NULL for reverse string:[%r]\n", NULL);
+    len2 = printf("Testing NULL for reverse string:[%r]\n", NULL);
+    printf("len1: %d, len2: %d\n", len1, len2);
+
+    len1 = _printf("Testing NULL for reverse string (uppercase):[%Z]\n", NULL);
+    len2 = printf("Testing NULL for reverse string (uppercase):[%Z]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
 
     return 0;

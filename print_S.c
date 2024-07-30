@@ -13,7 +13,10 @@ int print_S(va_list val)
 
 	n = va_arg(val, char*);
 	if (n == NULL)
-		return (print_err());
+	{
+		n = "%S";
+		return (print_str(n));
+	}
 	while (n[i] != '\0')
 	{
 		j = (unsigned char)n[i];
