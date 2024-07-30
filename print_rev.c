@@ -14,16 +14,14 @@ int print_rev(va_list val)
 	int i;
 
 	if (string == NULL)
-	{
-		string = "(null)";
-	}
-	while (string[length] != '\0')
+		return (print_err());
+	while (*(string + length) != '\0')
 	{
 		length++;
 	}
 	for (i = length - 1; i >= 0; i--)
 	{
-		_putchar(string[i]);
+		_putchar(*(string + i));
 	}
 	return (length);
 }
