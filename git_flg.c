@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * get_flags - Parses the format string for active flags.
+ * get_flg - Parses the format string for active flags.
  * @format: The format string to check.
  * @i: Index position to start from.
  *
  * Return: The combined flag values.
  */
-int get_flags(const char *format, int *i)
+int get_flg(const char *format, int *i)
 {
 	int flags = 0;
 	int pos = *i + 1;
