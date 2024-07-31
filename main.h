@@ -43,6 +43,7 @@ int _printf(const char *format, ...);
  */
 
 int get_flg(const char *format, int *i);
+int git_prec(const char *format, int *index, va_list list);
 
 typedef struct specifiers
 {
