@@ -16,6 +16,7 @@
 
 /*Function declarations*/
 int print_err(void);
+int print_null(void);
 int print_pct(void);
 int print_str(char *s);
 int print_char(va_list val);
@@ -33,7 +34,6 @@ int print_rot13(va_list val);
 int print_S(va_list val);
 int print_ptr(va_list val);
 int _putchar(char c);
-int handle_specifiers(char s, va_list val);
 int _printf(const char *format, ...);
 /**
  * struct specifiers - hold sonversion specifiers

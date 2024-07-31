@@ -23,8 +23,7 @@ int handle_specifiers(char s, va_list val)
 		{
 			if (sp[i].type == 's')
 				return (sp[i].fct(va_arg(val, char*)));
-			else
-				return (sp[i].fct(val));
+			return (sp[i].fct(val));
 		}
 		i++;
 	}
@@ -42,8 +41,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
 	va_start(str, format);
 	while (format[i])
 	{
@@ -56,7 +53,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '\0')
 			return (len);
 		j = i + 1;
-		while (format[j] == '\0')
+		if (format[j] == '\0')
 			return (-1);
 		result = handle_specifiers(format[j], str);
 		if (result != 0)
@@ -66,8 +63,9 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		_putchar(format[i]);
-		len++;
-		i++;
+		_putchar(format[j]);
+		len += 2;
+		i += 2;
 	}
 	va_end(str);
 	return (len);

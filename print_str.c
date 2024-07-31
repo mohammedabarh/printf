@@ -11,7 +11,7 @@ int print_str(char *s)
 	int i = 0;
 
 	if (s == NULL)
-		return (print_err());
+		s = "(null)";
 	while (s[i])
 	{
 		_putchar(s[i]);

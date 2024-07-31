@@ -13,8 +13,11 @@ int print_S(va_list val)
 
 	n = va_arg(val, char*);
 	if (n == NULL)
-		return (print_err());
-	while (n[i] != '\0')
+	{
+		n = "\x00";
+		return (print_str(n));
+	}
+	while (n[i])
 	{
 		j = (unsigned char)n[i];
 		if ((0 < j && 32 > j) || 127 <= j)
@@ -24,7 +27,7 @@ int print_S(va_list val)
 			if (j / 16 < 10)
 				_putchar((j / 16) + '0');
 			else
-				_putchar((j / 16) - 10 + 'A');
+					_putchar((j / 16) - 10 + 'A');
 			if (j % 16 < 10)
 				_putchar((j % 16) + '0');
 			else
