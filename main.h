@@ -41,6 +41,9 @@ int _printf(const char *format, ...);
  * @type: the conversion specifier
  * @fct: function corresponding to specifier
  */
+
+int get_flg(const char *format, int *i);
+
 typedef struct specifiers
 {
 	char type;
