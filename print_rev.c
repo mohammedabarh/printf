@@ -2,27 +2,25 @@
 #include <stdarg.h>
 
 /**
- * print_rev - Function that prints a string in reverse.
- * @val: A va_list containing the string to print.
+ * print_rev - Outputs a string in reverse order.
+ * @val: A va_list containing the string argument.
  *
- * Return: The number of characters printed.
+ * Return: The length of the string.
  */
 int print_rev(va_list val)
 {
-	char *s = va_arg(val, char *);
-	int i;
+	char *string = va_arg(val, char *);
 	int length = 0;
+	int i;
 
-	if (s == NULL)
-		s = "(null)";
+	if (string == NULL)
+		return (-1);
 
-	/* Calculate the length of the string */
-	while (s[length] != '\0')
+	while (*(string + length) != '\0')
 		length++;
 
-	/* Print characters in reverse order */
 	for (i = length - 1; i >= 0; i--)
-		_putchar(s[i]);
+		_putchar(*(string + i));
 
 	return (length);
 }
