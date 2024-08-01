@@ -6,6 +6,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/* ---------flags----------- */
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
+
+
 /*Function declarations*/
 int print_err(void);
 int print_null(void);
@@ -33,6 +41,10 @@ int _printf(const char *format, ...);
  * @type: the conversion specifier
  * @fct: function corresponding to specifier
  */
+
+int get_flg(const char *format, int *i);
+int git_prec(const char *format, int *index, va_list list);
+
 typedef struct specifiers
 {
 	char type;
