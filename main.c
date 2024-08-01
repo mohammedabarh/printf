@@ -4,11 +4,14 @@
 
 int main(void)
 {
+	
+    int len1, len2;
     unsigned int ui = (unsigned int)INT_MAX + 1024;
     void *addr = (void *)0x7ffe637541f0; /* Non-NULL address for testing */
 
-    int len1 = _printf("Testing NULL string:[%s]\n", NULL);
-    int len2 = printf("Testing NULL string:[%s]\n", NULL);
+    _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+    len1 = _printf("Testing NULL string:[%s]\n", NULL);
+    len2 = printf("Testing NULL string:[%s]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
 
     len1 = _printf("Testing NULL character:[%c]\n", '\0');

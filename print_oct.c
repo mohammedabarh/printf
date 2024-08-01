@@ -29,7 +29,7 @@ int print_oct(va_list val)
 	char *n;
 
 	num = va_arg(val, unsigned int);
-	n = malloc(33 * sizeof(char*));
+	n = malloc(33 * sizeof(char *));
 	if (n == NULL)
 	{
 		free(n);
