@@ -27,7 +27,7 @@ int handle_specifiers(char s, va_list val)
 		}
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 /**
  * _printf - print output according to format
