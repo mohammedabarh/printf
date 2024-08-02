@@ -67,7 +67,6 @@ int _printf(const char *format, ...)
 		len += 2;
 		i += 2;
 	}
-	_putchar(-1); /* Prompt buffer to write */
 	va_end(str);
 	return (len);
 }
