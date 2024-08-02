@@ -27,12 +27,14 @@ void print_HEX_rem(unsigned int num, char *s, unsigned int *a)
 /**
  * print_HEX - custom conversion to uppercase hexa
  * @val: the argument(the number) to be converted
+ * @f: pointer to the structure of flags
  * Return: the length of the printed & converted number
  */
-int print_HEX(va_list val)
+int print_HEX(va_list val, flags *f)
 {
 	unsigned int num, i = 0;
 	char *n;
+	int len = 0;
 
 	num = va_arg(val, unsigned int);
 	n = malloc(33 * sizeof(char *));
@@ -42,5 +44,8 @@ int print_HEX(va_list val)
 		return (-1);
 	}
 	print_HEX_rem(num, n, &i);
-	return (print_str(n));
+	if (f->hash == 1 && n[0] != '0')
+		len += print_str("0X");
+	len += print_str(n);
+	return (len);
 }

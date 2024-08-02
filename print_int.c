@@ -38,9 +38,10 @@ char *int_to_str(int a, char *s)
 /**
  * print_int - print an integer
  * @val: arguments
+ * @f: pointer to the structure of flags
  * Return: length of the integer
  */
-int print_int(va_list val)
+int print_int(va_list val, flags *f)
 {
 	int  i = va_arg(val, int), len = 0;
 	char *num, *n;
@@ -52,7 +53,13 @@ int print_int(va_list val)
 		return (-1);
 	}
 	n = int_to_str(i, num);
-	len = print_str(n);
+	if (f->space == 1 && f->plus == 0 && i >= 0)
+		len += _putchar(' ');
+	if (f->plus == 1 && i >= 0)
+		len += _putchar('+');
+	if (i <= 0)
+		len++;
+	len += print_str(n);
 	free(num);
 	return (len);
 }

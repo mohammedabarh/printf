@@ -2,9 +2,10 @@
 /**
  * print_rot13 - encodes a string using ROT13
  * @val: list of arguments for printf
+ * @f: pointer to the structure of flags
  * Return: number of characters printed
  */
-int print_rot13(va_list val)
+int print_rot13(va_list val, flags *f)
 {
 	int i, j, counter = 0;
 	int found = 0;
@@ -12,6 +13,7 @@ int print_rot13(va_list val)
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
+	(void)f;
 	if (s == NULL)
 		return (0);
 

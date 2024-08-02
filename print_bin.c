@@ -22,13 +22,15 @@ void print_bin_rem(unsigned int num, char *s, unsigned int *a)
 /**
  * print_bin - custom conversion to binary
  * @val: the argument to convert
+ * @f: pointer to the structure of flags
  * Return: length of printed numbers
  */
-int print_bin(va_list val)
+int print_bin(va_list val, flags *f)
 {
 	unsigned int num, i = 0;
 	char *n;
 
+	(void)f;
 	num = va_arg(val, unsigned int);
 	n = malloc(33 * sizeof(char *));
 	if (n == NULL)

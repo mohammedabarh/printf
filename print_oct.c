@@ -21,12 +21,14 @@ void print_oct_rem(unsigned int num, char *s, unsigned int *a)
 /**
  * print_oct - print number in octal format
  * @val: argument(the number)
+ * @f: pointer to the structure of flags
  * Return: length of the printed octal number
  */
-int print_oct(va_list val)
+int print_oct(va_list val, flags *f)
 {
 	unsigned int num, i = 0;
 	char *n;
+	int len = 0;
 
 	num = va_arg(val, unsigned int);
 	n = malloc(33 * sizeof(char *));
@@ -36,5 +38,8 @@ int print_oct(va_list val)
 		return (-1);
 	}
 	print_oct_rem(num, n, &i);
-	return (print_str(n));
+	if (f->hash == 1 && n[0] != '0')
+		len += _putchar('0');
+	len += print_str(n);
+	return (len);
 }
