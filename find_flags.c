@@ -11,6 +11,7 @@ int find_flags(char s, flags *f)
 {
 	int i = 0;
 
+	(void)f;
 	switch (s)
 	{
 		case '+':

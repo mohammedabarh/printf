@@ -8,7 +8,7 @@
 int print_string(va_list val, flags *f)
 {
 	char *s = va_arg(val, char*);
-	int i = 0;
+	int i = 0, len = 0;
 
 	(void)f;
 	if (s == NULL)
@@ -17,6 +17,7 @@ int print_string(va_list val, flags *f)
 	{
 		_putchar(s[i]);
 		i++;
+		len++;
 	}
-	return (i);
+	return (len);
 }
