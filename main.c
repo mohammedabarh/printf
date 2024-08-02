@@ -61,7 +61,27 @@ int main(void)
     len1 = _printf("Testing NULL for reverse string (uppercase):[%Z]\n", NULL);
     len2 = printf("Testing NULL for reverse string (uppercase):[%Z]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
-
-    return 0;
+    
+    /*---------------------------------------------*/
+    _printf("%+d", 1024);
+    printf("%+d", 1024);
+    _printf("%+d", -1024);
+    printf("%+d", -1024);
+    _printf("%+d", 0);
+    printf("%+d", 0);
+    _printf("%+d", INT_MAX);
+    printf("%+d", INT_MAX);
+    _printf("%+d", INT_MIN);
+    printf("%+d", INT_MIN);
+    _printf("%+d", 1024);
+    printf("%+d", 1024);
+    _printf("%+d", 1024);
+    printf("%+d", 1024);
+    _printf("There is %+d bytes in %+d KB\n", 1024, 1);
+    printf("There is %+d bytes in %+d KB\n", 1024, 1);
+    _printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+    printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+    _printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+     printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+     return (0);
 }
-

@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 		if (result >= 0)
 		{
 			len += result;
-			i += 2;
+			i += j - i + 1;
 			continue;
 		}
 		_putchar(format[i]);
