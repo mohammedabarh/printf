@@ -46,7 +46,7 @@ int print_int(va_list val, flags *f)
 	int  i = va_arg(val, int), len = 0;
 	char *num, *n;
 
-	num = malloc(12);
+	num = malloc(20);
 	if (num == NULL)
 	{
 		free(num);
@@ -57,8 +57,6 @@ int print_int(va_list val, flags *f)
 		len += _putchar(' ');
 	if (f->plus == 1 && i >= 0)
 		len += _putchar('+');
-	if (i <= 0)
-		len++;
 	len += print_str(n);
 	free(num);
 	return (len);
