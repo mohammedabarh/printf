@@ -8,8 +8,8 @@
  */
 int _putchar(char c)
 {
-	static buffer[1024];
-	static i;
+	static char buffer[1024];
+	static int i;
 
 	/* Empty the buffer */
 	if (c == -1 || i >= 1024)
