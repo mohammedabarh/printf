@@ -39,8 +39,8 @@ int parse_flags(const char *format, int *index, flags *fl)
 
 	while (find_flags(format[*index], fl))
 	{
-		(*index)++;
 		count++;
+		(*index)++;
 	}
 	return (count);
 }
@@ -68,10 +68,10 @@ int _printf(const char *format, ...)
 		if (format[j] == '\0')
 			return (-1);
 		flag_count = parse_flags(format, &j, &fl);
-		if (flag_count == 1 && format[j - 1] == ' ')
+		if (flag_count == 1 && fl.space == 1 && format[j - 1] == ' ')
 		{
 			len += print_str("% ");
-			i += 2;
+			i = j;
 			continue;
 		}
 		result = handle_specifiers(format[j], str, &fl);
