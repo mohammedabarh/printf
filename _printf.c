@@ -27,6 +27,24 @@ int handle_specifiers(char s, va_list val, flags *f)
 	return (-1);
 }
 /**
+ * parse_flags - traverse flags and count them
+ * @format: argument
+ * @index: index of format output
+ * @fl: pointer to the data structure of flags
+ * Return: number of flags found
+ */
+int parse_flags(const char *format, int *index, flags *fl)
+{
+	int count = 0;
+
+	while (find_flags(format[*index], fl))
+	{
+		(*index)++;
+		count++;
+	}
+	return (count);
+}
+/**
  * _printf - print output according to format
  * @format: function argument(output and/or format specifiers)
  * Return: number of printed characters
@@ -35,7 +53,7 @@ int _printf(const char *format, ...)
 {
 	va_list str;
 	flags fl = {0, 0, 0};
-	int i = 0, j, len = 0, result;
+	int i = 0, j, len = 0, result, flag_count;
 
 	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -43,18 +61,19 @@ int _printf(const char *format, ...)
 	while (format[i])
 	{
 		while (format[i] != '%' && format[i] != '\0')
-		{
-			_putchar(format[i]);
-			len++;
-			i++;
-		}
+			len += _putchar(format[i++]);
 		if (format[i] == '\0')
 			return (len);
 		j = i + 1;
 		if (format[j] == '\0')
 			return (-1);
-		while (find_flags(format[j], &fl))
-			j++;
+		flag_count = parse_flags(format, &j, &fl);
+		if (flag_count == 1 && format[j - 1] == ' ')
+		{
+			len += print_str("% ");
+			i += 2;
+			continue;
+		}
 		result = handle_specifiers(format[j], str, &fl);
 		if (result >= 0)
 		{
@@ -62,9 +81,8 @@ int _printf(const char *format, ...)
 			i += j - i + 1;
 			continue;
 		}
-		_putchar(format[i]);
-		_putchar(format[j]);
-		len += 2;
+		len += _putchar(format[i]);
+		len += _putchar(format[j]);
 		i += 2;
 	}
 	va_end(str);
