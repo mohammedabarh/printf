@@ -1,7 +1,8 @@
 #include <unistd.h>
 #include "main.h"
 /**
- * _putchar - print a character
+ * _putchar - create a buffer to print to stdout
+ * in order to able to call write as little as possible
  * @c: the character
  * Return: 1 or -1 if any error occurs
  */

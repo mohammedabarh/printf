@@ -27,13 +27,15 @@ char *uint_to_str(unsigned int a, char *s)
 /**
  * print_unsign - handle %u(unsigned) specifier
  * @val: the argument
+ * @f: pointer to the structure of flags
  * Return: length of the printed argument
  */
-int print_unsign(va_list val)
+int print_unsign(va_list val, flags *f)
 {
 	unsigned int i = va_arg(val, unsigned int), len = 0;
 	char *num, *n;
 
+	(void)f;
 	num = malloc(8);
 	if (num == NULL)
 	{

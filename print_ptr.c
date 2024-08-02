@@ -3,15 +3,17 @@
 /**
  * print_ptr - print pointer/ address
  * @val: argument
+ * @f: pointer to the structure of flags
  * Return: length of printed characters
  */
-int print_ptr(va_list val)
+int print_ptr(va_list val, flags *f)
 {
 	void *c = va_arg(val, void*);
 	int i = 0, j, n, len = 0;
 	char hex[16];
 	uintptr_t c_ptr;
 
+	(void)f;
 	if (c == NULL)
 		return (print_err());
 	_putchar('0');

@@ -3,13 +3,14 @@
  * handle_specifiers - create a structures that links conversion
  * specifiers with their corresponding structures
  * @s: conversion specifier form in_printf()
- * @val: lateral argument to conversion specifier
+ * @val: argument
+ * @f: pointer to the structur of flags
  * Return: length of printed characters
  */
-int handle_specifiers(char s, va_list val)
+int handle_specifiers(char s, va_list val, flags *f)
 {
 	spec sp[] = {
-		{'c', print_char}, {'s', print_str}, {'%', print_pct},
+		{'c', print_char}, {'s', print_string}, {'%', print_pct},
 		{'d', print_int}, {'i', print_int}, {'b', print_bin},
 		{'u', print_unsign}, {'o', print_oct}, {'x', print_hex},
 		{'X', print_HEX}, {'S', print_S}, {'p', print_ptr},
@@ -20,14 +21,10 @@ int handle_specifiers(char s, va_list val)
 	while (i < 14)
 	{
 		if (sp[i].type == s)
-		{
-			if (sp[i].type == 's')
-				return (sp[i].fct(va_arg(val, char*)));
-			return (sp[i].fct(val));
-		}
+			return (sp[i].fct(val, f));
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 /**
  * _printf - print output according to format
@@ -37,6 +34,7 @@ int handle_specifiers(char s, va_list val)
 int _printf(const char *format, ...)
 {
 	va_list str;
+	flags fl = {0, 0, 0};
 	int i = 0, j, len = 0, result;
 
 	if (format == NULL || (format[0] == '%' && !format[1]))
@@ -55,11 +53,13 @@ int _printf(const char *format, ...)
 		j = i + 1;
 		if (format[j] == '\0')
 			return (-1);
-		result = handle_specifiers(format[j], str);
-		if (result != 0)
+		while (find_flags(format[j], &fl))
+			j++;
+		result = handle_specifiers(format[j], str, &fl);
+		if (result >= 0)
 		{
 			len += result;
-			i += 2;
+			i += j - i + 1;
 			continue;
 		}
 		_putchar(format[i]);

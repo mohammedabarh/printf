@@ -4,11 +4,18 @@
 
 int main(void)
 {
+	
+    int len1, len2;
     unsigned int ui = (unsigned int)INT_MAX + 1024;
     void *addr = (void *)0x7ffe637541f0; /* Non-NULL address for testing */
 
-    int len1 = _printf("Testing NULL string:[%s]\n", NULL);
-    int len2 = printf("Testing NULL string:[%s]\n", NULL);
+    _printf("% ");
+    printf("\n");
+    _printf("% % % % ");
+    printf("\n\n\n");
+    _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
+    len1 = _printf("Testing NULL string:[%s]\n", NULL);
+    len2 = printf("Testing NULL string:[%s]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
 
     len1 = _printf("Testing NULL character:[%c]\n", '\0');
@@ -58,7 +65,27 @@ int main(void)
     len1 = _printf("Testing NULL for reverse string (uppercase):[%Z]\n", NULL);
     len2 = printf("Testing NULL for reverse string (uppercase):[%Z]\n", NULL);
     printf("len1: %d, len2: %d\n", len1, len2);
-
-    return 0;
+    
+    /*---------------------------------------------*/
+    _printf("%+d", 1024);
+    printf("%+d", 1024);
+    _printf("%+d", -1024);
+    printf("%+d", -1024);
+    _printf("%+d", 0);
+    printf("%+d", 0);
+    _printf("%+d", INT_MAX);
+    printf("%+d", INT_MAX);
+    _printf("%+d", INT_MIN);
+    printf("%+d", INT_MIN);
+    _printf("%+d", 1024);
+    printf("%+d", 1024);
+    _printf("%+d", 1024);
+    printf("%+d", 1024);
+    _printf("There is %+d bytes in %+d KB\n", 1024, 1);
+    printf("There is %+d bytes in %+d KB\n", 1024, 1);
+    _printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+    printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+    _printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+     printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+     return (0);
 }
-

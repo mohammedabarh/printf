@@ -6,49 +6,50 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* ---------flags----------- */
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
-
+/**
+ * struct flag - hold flags
+ * @plus: '+' flag
+ * @space: ' 'flag
+ * @hash: '#' flag
+ */
+typedef struct flag
+{
+	int plus;
+	int space;
+	int hash;
+} flags;
 /*Function declarations*/
 int print_err(void);
 int print_null(void);
-int print_pct(void);
+int print_pct(va_list val, flags *f);
 int print_str(char *s);
-int print_char(va_list val);
-int print_int(va_list val);
-int print_bin(va_list val);
-int print_pointer(va_list val);
-int print_oct(va_list val);
-int print_unsign(va_list val);
-int print_oct(va_list val);
-int print_rev(va_list val);
-int print_string(va_list val);
-int print_hex(va_list val);
-int print_HEX(va_list val);
-int print_rot13(va_list val);
-int print_S(va_list val);
-int print_ptr(va_list val);
+int print_char(va_list val, flags *f);
+int print_int(va_list val, flags *f);
+int print_bin(va_list val, flags *f);
+int print_pointer(va_list val, flags *f);
+int print_unsign(va_list val, flags *f);
+int print_oct(va_list val, flags *f);
+int print_rev(va_list val, flags *f);
+int print_string(va_list val, flags *f);
+int print_hex(va_list val, flags *f);
+int print_HEX(va_list val, flags *f);
+int print_rot13(va_list val, flags *f);
+int print_S(va_list val, flags *f);
+int print_ptr(va_list val, flags *f);
 int _putchar(char c);
 int _printf(const char *format, ...);
+int find_flags(char s, flags *f);
+int find_prec(const char *format, int *i, va_list val);
 /**
  * struct specifiers - hold sonversion specifiers
  * and corresponding functions
  * @type: the conversion specifier
  * @fct: function corresponding to specifier
  */
-
-int get_flg(const char *format, int *i);
-int git_prec(const char *format, int *index, va_list list);
-
 typedef struct specifiers
 {
 	char type;
-	int (*fct)();
+	int (*fct)(va_list val, flags *f);
 } spec;
 
 #endif /* _MAIN_H */
