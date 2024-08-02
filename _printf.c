@@ -68,11 +68,14 @@ int _printf(const char *format, ...)
 		if (format[j] == '\0')
 			return (-1);
 		flag_count = parse_flags(format, &j, &fl);
-		if (flag_count == 1 && fl.space == 1 && format[j - 1] == ' ')
+		if (flag_count == 1 && format[j - 1] == ' ')
 		{
-			len += print_str("% ");
-			i = j;
-			continue;
+			if (format[j] == '%' || format[j] == '\0')
+			{
+				len += print_str("% ");
+				i += 2;
+				continue;
+			}
 		}
 		result = handle_specifiers(format[j], str, &fl);
 		if (result >= 0)
