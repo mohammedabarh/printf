@@ -12,7 +12,7 @@ char *int_to_str(int a, char *s)
 	int i = 0, j, s_len, temp;
 
 	if (a == INT_MIN)
-		return ("-2147483648");
+		return ("2147483648");
 	if (a < 0)
 		a = -a;
 	do {
