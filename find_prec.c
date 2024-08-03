@@ -1,5 +1,4 @@
 #include "main.h"
-#include <ctype.h>
 
 /**
  * find_prec - determines the precision for formatting
@@ -7,14 +6,14 @@
  * @i: Position of the current character in the format string
  * @val: List of arguments
  *
- * Return: The computed precision value
+ * Return: precision value
  */
 int find_prec(const char *format, int *i, va_list val)
 {
-	int n = *i + 1, prec_val = -1;
+	int n = *i + 1, prec_val;
 
 	if (format[n] != '.')
-		return (prec_val);
+		return (-1);
 
 	prec_val = 0;
 	n++;
@@ -35,7 +34,5 @@ int find_prec(const char *format, int *i, va_list val)
 	}
 
 	*i = n - 1;
-
 	return (prec_val);
 }
-

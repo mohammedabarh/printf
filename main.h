@@ -6,17 +6,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+
 /**
  * struct flag - hold flags
  * @plus: '+' flag
  * @space: ' 'flag
  * @hash: '#' flag
+ * @zero: 0 flag
+ * @minus: '-' flag
+ * @width: desired width
+ * @prec: precision
  */
 typedef struct flag
 {
 	int plus;
 	int space;
 	int hash;
+	int zero;
+	int minus;
+	int width;
+	int prec;
 } flags;
 /*Function declarations*/
 int print_err(void);
@@ -38,7 +47,7 @@ int print_S(va_list val, flags *f);
 int print_ptr(va_list val, flags *f);
 int _putchar(char c);
 int _printf(const char *format, ...);
-int find_flags(char s, flags *f);
+int find_flags(const char *format, int *i, flags *f, va_list val);
 int find_prec(const char *format, int *i, va_list val);
 int find_width(const char *format, int *i, va_list val);
 

@@ -2,30 +2,43 @@
 
 /**
  * find_flags - Analyze the format string for active flags.
- * @s: the specifier
+ * @format: the string that includes format specifiers
+ * @i: index of current character
  * @f: pointer to the structure of flags
+ * @val: list of arguments
  *
  * Return: 1 if a flag is found, 0 if not
  */
-int find_flags(char s, flags *f)
+int find_flags(const char *format, int *i, flags *f, va_list val)
 {
-	int i = 0;
+	char s = format[*i];
+	int n = 0;
 
-	(void)f;
 	switch (s)
 	{
 		case '+':
 			f->plus = 1;
-			i = 1;
+			n = 1;
 			break;
 		case ' ':
 			f->space = 1;
-			i = 1;
+			n = 1;
 			break;
 		case '#':
 			f->hash = 1;
-			i = 1;
+			n = 1;
+			break;
+		case '0':
+			f->zero = 1;
+			n = 1;
+			break;
+		case '-':
+			f->minus = 1;
+			n = 1;
 			break;
 	}
-	return (i);
+        f->width = find_width(format, i, val);
+	if (f->width)
+		n = 1;
+	return (n);
 }

@@ -6,7 +6,7 @@
  * @i: Position of the current character in the format string
  * @val: List of arguments
  *
- * Return: The computed width value
+ * Return: void
  */
 int find_width(const char *format, int *i, va_list val)
 {
@@ -16,9 +16,7 @@ int find_width(const char *format, int *i, va_list val)
 	while (format[n] != '\0')
 	{
 		if (isdigit((unsigned char)format[n]))
-		{
 			width_val = width_val * 10 + (format[n] - '0');
-		}
 		else if (format[n] == '*')
 		{
 			n++;
@@ -26,14 +24,10 @@ int find_width(const char *format, int *i, va_list val)
 			break;
 		}
 		else
-		{
 			break;
-		}
 		n++;
 	}
-
 	*i = n - 1;
-
 	return (width_val);
 }
 
