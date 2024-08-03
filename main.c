@@ -9,9 +9,13 @@ int main(void)
     unsigned int ui = (unsigned int)INT_MAX + 1024;
     void *addr = (void *)0x7ffe637541f0; /* Non-NULL address for testing */
 
-    _printf("% ");
-    printf("\n");
-    _printf("% % % % ");
+    len1 = _printf("% ");
+    len2 = _printf("% % % % ");
+    printf("\n%d, %d\n", len1, len2);
+    len1 = printf("% ");
+    len2 = printf("% % % % ");
+    printf("\n%d, %d\n", len1, len2);
+    printf("% ");
     printf("\n\n");
     _printf("% d - % d = % d\n", 1024, 2048, -1024);
     printf("% d - % d = % d\n", 1024, 2048, -1024);
