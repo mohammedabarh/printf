@@ -13,6 +13,8 @@ int find_size(const char *format, int *i, va_list val)
 {
 	int size = 0;
 
+	(void)val;
+
 	if (format[*i + 1] == 'l')
 	{
 		size = 1;
