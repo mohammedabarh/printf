@@ -9,6 +9,10 @@ int main(void)
     unsigned int ui = (unsigned int)INT_MAX + 1024;
     void *addr = (void *)0x7ffe637541f0; /* Non-NULL address for testing */
 
+    _printf("%06d  ", -1024);
+    printf("%06d\n", -1024);
+    _printf("%06i ", -1024);
+    printf("%06i\n", -1024);
     _printf("In the middle %06d of a sentence.\n", 1024);
     printf("In the middle %06d of a sentence.\n", 1024);
     _printf("%06u  ", 102498402);

@@ -9,22 +9,17 @@
  */
 char *int_to_str(int a, char *s)
 {
-	int i = 0, j, s_len, negative = 0, temp;
+	int i = 0, j, s_len, temp;
 
 	if (a == INT_MIN)
 		return ("-2147483648");
 	if (a < 0)
-	{
-		negative = 1;
 		a = -a;
-	}
 	do {
 		s[i] = (a % 10) + '0';
 		a = a / 10;
 		i++;
 	} while (a > 0);
-	if (negative)
-		s[i++] = '-';
 	s[i] = '\0';
 	s_len = i;
 	for (i = 0, j = s_len - 1; i < j; i++, j--)
@@ -54,11 +49,16 @@ int print_int(va_list val, flags *f)
 		return (-1);
 	}
 	n = int_to_str(i, num);
+	length = strlen(n);
+	if (i < 0)
+	{
+		len += _putchar('-');
+		length++;
+	}
 	if (f->space == 1 && f->plus == 0 && i >= 0)
 		len += _putchar(' ');
 	if (f->plus == 1 && i >= 0)
 		len += _putchar('+');
-	length = strlen(n);
 	if (f->zero && !f->minus)
 	{
 		zero_pad = (f->width > length) ? (f->width - length) : 0;
