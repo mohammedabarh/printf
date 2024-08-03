@@ -10,10 +10,10 @@
  */
 int find_prec(const char *format, int *i, va_list val)
 {
-	int n = *i + 1, prec_val;
+	int n = *i + 1, prec_val = -1;
 
 	if (format[n] != '.')
-		return (-1);
+		return (prec_val);
 
 	prec_val = 0;
 	n++;

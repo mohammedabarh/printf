@@ -43,8 +43,9 @@ char *int_to_str(int a, char *s)
  */
 int print_int(va_list val, flags *f)
 {
-	int  i = va_arg(val, int), len = 0;
+	int  i = va_arg(val, int), len = 0, length;
 	char *num, *n;
+	size_t j, left_align, zero_pad;
 
 	num = malloc(20);
 	if (num == NULL)
@@ -57,7 +58,20 @@ int print_int(va_list val, flags *f)
 		len += _putchar(' ');
 	if (f->plus == 1 && i >= 0)
 		len += _putchar('+');
+	length = strlen(n);
+	if (f->zero && !f->minus)
+	{
+		zero_pad = (f->width > length) ? (f->width - length) : 0;
+		for (j = 0; j < zero_pad; j++)
+			len += _putchar('0');
+	}
 	len += print_str(n);
+	if (f->minus == 1)
+	{
+		left_align = (f->width > length) ? (f->width - length) : 0;
+		for (j = 0; j < left_align; j++)
+			len += _putchar(' ');
+	}
 	free(num);
 	return (len);
 }

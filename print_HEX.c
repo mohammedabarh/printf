@@ -46,6 +46,7 @@ int print_HEX(va_list val, flags *f)
 	print_HEX_rem(num, n, &i);
 	if (f->hash == 1 && n[0] != '0')
 		len += print_str("0X");
+	len = print_flags(n, len, f);
 	len += print_str(n);
 	return (len);
 }

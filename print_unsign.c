@@ -35,7 +35,6 @@ int print_unsign(va_list val, flags *f)
 	unsigned int i = va_arg(val, unsigned int), len = 0;
 	char *num, *n;
 
-	(void)f;
 	num = malloc(8);
 	if (num == NULL)
 	{
@@ -43,7 +42,8 @@ int print_unsign(va_list val, flags *f)
 		return (-1);
 	}
 	n = uint_to_str(i, num);
-	len = print_str(n);
+	len = print_flags(n, len, f);
+	len += print_str(n);
 	free(n);
 	return (len);
 }

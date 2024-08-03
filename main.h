@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <string.h>
 
 /**
  * struct flag - hold flags
@@ -50,7 +51,7 @@ int _printf(const char *format, ...);
 int find_flags(const char *format, int *i, flags *f, va_list val);
 int find_prec(const char *format, int *i, va_list val);
 int find_width(const char *format, int *i, va_list val);
-
+int print_flags(char *c, int n, flags *f);
 /**
  * struct specifiers - hold sonversion specifiers
  * and corresponding functions
