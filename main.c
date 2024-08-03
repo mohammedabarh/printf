@@ -12,7 +12,10 @@ int main(void)
     _printf("% ");
     printf("\n");
     _printf("% % % % ");
-    printf("\n\n\n");
+    printf("\n\n");
+    _printf("% d - % d = % d\n", 1024, 2048, -1024);
+    printf("% d - % d = % d\n", 1024, 2048, -1024);
+    printf("\n\n");
     _printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
     len1 = _printf("Testing NULL string:[%s]\n", NULL);
     len2 = printf("Testing NULL string:[%s]\n", NULL);
