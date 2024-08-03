@@ -72,8 +72,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[j] == '%' || format[j] == '\0')
 			{
-				print_str("% ");
-				len += 1;
+				len += _putchar('%');
 				i += 2;
 				continue;
 			}
