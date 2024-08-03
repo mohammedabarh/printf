@@ -37,7 +37,7 @@ int find_flags(const char *format, int *i, flags *f, va_list val)
 			n = 1;
 			break;
 	}
-        f->width = find_width(format, i, val);
+	f->width = find_width(format, i, val);
 	if (f->width)
 		n = 1;
 	return (n);
