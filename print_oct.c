@@ -40,6 +40,7 @@ int print_oct(va_list val, flags *f)
 	print_oct_rem(num, n, &i);
 	if (f->hash == 1 && n[0] != '0')
 		len += _putchar('0');
+	len = print_flags(n, len, f);
 	len += print_str(n);
 	return (len);
 }

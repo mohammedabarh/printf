@@ -9,13 +9,12 @@ int main(void)
     unsigned int ui = (unsigned int)INT_MAX + 1024;
     void *addr = (void *)0x7ffe637541f0; /* Non-NULL address for testing */
 
-    len1 = _printf("% ");
-    len2 = _printf("% % % % ");
-    printf("\n%d, %d\n", len1, len2);
-    len1 = printf("% ");
-    len2 = printf("% % % % ");
-    printf("\n%d, %d\n", len1, len2);
-    printf("% ");
+    _printf("%06i\n", 0);
+    _printf("%015d\n", 98402);
+    printf("%015d\n", 98402);
+    len1 = _printf("%-20d\n", 102498402);
+    len2 = printf("%-20d\n", 102498402);
+    printf("%d, %d\n", len1, len2);
     printf("\n\n");
     _printf("% d - % d = % d\n", 1024, 2048, -1024);
     printf("% d - % d = % d\n", 1024, 2048, -1024);
