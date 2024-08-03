@@ -52,6 +52,7 @@ int find_flags(const char *format, int *i, flags *f, va_list val);
 int find_prec(const char *format, int *i, va_list val);
 int find_width(const char *format, int *i, va_list val);
 int find_size(const char *format, int *i, va_list val);
+
 /**
  * struct specifiers - hold sonversion specifiers
  * and corresponding functions
