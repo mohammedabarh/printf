@@ -58,6 +58,8 @@ int print_int(va_list val, flags *f)
 		len += _putchar(' ');
 	if (f->plus == 1 && i >= 0)
 		len += _putchar('+');
+	if (f->is_prec && i < 0)
+		length--;
 	len = printw_flags(n, length, len, f);
 	free(num);
 	return (len);
