@@ -35,7 +35,6 @@ int print_hex(va_list val, flags *f)
 	unsigned int num, i = 0;
 	char *n;
 	int len = 0, length;
-	size_t j, left_align, zero_pad;
 
 	num = va_arg(val, unsigned int);
 	n = malloc(33 * sizeof(char *));
@@ -48,18 +47,6 @@ int print_hex(va_list val, flags *f)
 	if (f->hash == 1 && n[0] != '0')
 		len += print_str("0x");
 	length = strlen(n);
-	if (f->zero && !f->minus)
-	{
-		zero_pad = (f->width > length) ? (f->width - length) : 0;
-		for (j = 0; j < zero_pad; j++)
-			len += _putchar('0');
-	}
-	len += print_str(n);
-	if (f->minus == 1)
-	{
-		left_align = (f->width > length) ? (f->width - length) : 0;
-		for (j = 0; j < left_align; j++)
-			len += _putchar(' ');
-	}
+	len = printw_flags(n, length, len, f);
 	return (len);
 }
