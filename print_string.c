@@ -13,15 +13,12 @@ int print_string(va_list val, flags *f)
 	if (s == NULL)
 		s = "(null)";
 	length = strlen(s);
-	if (f->is_prec && f->prec == 0)
-		return (0);
 	if (f->is_prec && f->prec < length)
-		s[f->prec] = '\0';
-	while (s[i])
+		length = f->prec;
+	while (i < length && s[i])
 	{
-		_putchar(s[i]);
+		len += _putchar(s[i]);
 		i++;
-		len++;
 	}
 	return (len);
 }
