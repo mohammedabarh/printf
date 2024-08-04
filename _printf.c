@@ -34,7 +34,7 @@ int handle_specifiers(char s, va_list val, flags *f)
 int _printf(const char *format, ...)
 {
 	va_list str;
-	flags fl = {0, 0, 0, 0, 0, 0, 0};
+	flags fl = {0, 0, 0, 0, 0, 0, 0, 0};
 	int i = 0, j, len = 0, result;
 
 	if (format == NULL || (format[0] == '%' && !format[1]))
@@ -54,6 +54,8 @@ int _printf(const char *format, ...)
 		while (find_flags(format, &j, &fl, str) > 0)
 			j++;
 		result = handle_specifiers(format[j], str, &fl);
+		if (fl.is_prec && fl.width == 0)
+			return (0);
 		if (result >= 0)
 		{
 			len += result;

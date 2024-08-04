@@ -36,12 +36,18 @@ int find_flags(const char *format, int *i, flags *f, va_list val)
 			f->minus = 1;
 			n = 1;
 			break;
+		case '.':
+			f->is_prec = 1;
+			n = 1;
+			break;
 	}
 	if (n == 1)
 	{
 		f->width = find_width(format, i, val);
-		if (f->width > 0)
-			n = 1;
+		if (f->width && f->is_prec)
+			f->prec = f->width;
+		if (f->is_prec && f->width == 0)
+			return (0);
 	}
 	return (n);
 }

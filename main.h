@@ -16,6 +16,7 @@
  * @zero: 0 flag
  * @minus: '-' flag
  * @width: desired width
+ * @is_prec: precision found
  * @prec: precision
  */
 typedef struct flag
@@ -26,6 +27,7 @@ typedef struct flag
 	int zero;
 	int minus;
 	int width;
+	int is_prec;
 	int prec;
 } flags;
 /*Function declarations*/

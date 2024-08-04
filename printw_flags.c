@@ -9,8 +9,14 @@
  */
 int printw_flags(char *n, int length, int len, flags *f)
 {
-	size_t j, left_align, zero_pad;
+	size_t j, left_align, zero_pad, lead_zero;
 
+	if (f->is_prec && f->prec > length)
+	{
+		lead_zero = f->prec - length;
+		for (j = 0; j < lead_zero; j++)
+			len += _putchar('0');
+	}
 	if (f->width <= length)
 	{
 		len += print_str(n);

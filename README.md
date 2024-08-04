@@ -1,5 +1,7 @@
 PROJECT: 0x11. C - printf (custom printf)
+
 TEAM: Benjamine Senzele & Mohammed Abarhouch
+
 TIMELINE: July 26th, 2024 - August 04th, 2024
 
 TASKS

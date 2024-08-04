@@ -8,11 +8,16 @@
 int print_string(va_list val, flags *f)
 {
 	char *s = va_arg(val, char*);
-	int i = 0, len = 0;
+	int i = 0, j, len = 0, length;
 
-	(void)f;
 	if (s == NULL)
 		s = "(null)";
+	length = strlen(s);
+	if (f->is_prec && f->prec > length)
+	{
+		for (j = 0; j < f->prec - length; j++)
+			len += _putchar(' ');
+	}
 	while (s[i])
 	{
 		_putchar(s[i]);
