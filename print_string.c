@@ -20,7 +20,5 @@ int print_string(va_list val, flags *f)
 		len += _putchar(s[i]);
 		i++;
 	}
-	if (f->is_prec && (size_t)f->prec < strlen(s))
-		len += _putchar('\n');
 	return (len);
 }
